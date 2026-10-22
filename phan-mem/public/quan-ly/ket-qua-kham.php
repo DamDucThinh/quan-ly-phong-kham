@@ -14,10 +14,10 @@ $lich_hen = mot_dong(
      FROM lich_hen lh JOIN benh_nhan bn ON bn.id = lh.benh_nhan_id JOIN bac_si bs ON bs.id = lh.bac_si_id
      WHERE lh.id = ?',
     [(int) ($_POST['id'] ?? $_GET['id'] ?? 0)]
-) ?? chuyen_huong('quan-ly/lich-hen-hom-nay.php');
+) ?? chuyen_huong('quan-ly/lich-hen.php');
 if (in_array($lich_hen['trang_thai'], ['da_dat', 'da_huy'], true)) {
     dat_thong_diep('err', 'Bệnh nhân ' . e($lich_hen['ho_ten']) . ' chưa được tiếp nhận nên chưa ghi kết quả khám được.');
-    chuyen_huong('quan-ly/lich-hen-hom-nay.php');
+    chuyen_huong('quan-ly/lich-hen.php');
 }
 
 $benh_an = mot_dong('SELECT * FROM benh_an WHERE lich_hen_id = ?', [$lich_hen['id']]);
@@ -184,7 +184,7 @@ mo_trang('Ghi kết quả khám', 'ql', 'today');
       </div>
       <div class="form-actions">
         <a class="btn" href="<?= e(url('in-phieu.php', ['id' => $benh_an['id']])) ?>" data-in><?= $thuoc_da_luu ? 'In phiếu kết quả và đơn thuốc' : 'In phiếu kết quả' ?></a>
-        <a class="btn pri" href="<?= e(url('quan-ly/lich-hen-hom-nay.php')) ?>">Về lịch hẹn hôm nay</a>
+        <a class="btn pri" href="<?= e(url('quan-ly/lich-hen.php')) ?>">Về danh sách lịch hẹn</a>
       </div>
       <?php if (isset($_GET['in'])): ?>
         <div hidden data-in-ngay="<?= e(url('in-phieu.php', ['id' => $benh_an['id'], 'phan' => $thuoc_da_luu ? 'don-thuoc' : 'ket-qua'])) ?>"></div>

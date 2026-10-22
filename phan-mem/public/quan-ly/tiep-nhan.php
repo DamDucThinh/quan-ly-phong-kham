@@ -107,7 +107,7 @@ if (la_post()) {
                 $pdo->commit();
                 dat_thong_diep('ok bar', '<span class="txt"><strong>' . ($ket_qua['tao_moi'] ? 'Đã tạo hồ sơ bệnh nhân mới' : 'Đã cập nhật hồ sơ bệnh nhân')
                     . ' ' . e($ket_qua['ma']) . '.</strong> Phiếu tiếp nhận đã chuyển sang khám — bệnh nhân vào hàng chờ của '
-                    . e(ten_bac_si($ket_qua['bac_si'])) . '.</span><a class="btn pri" href="' . e(url('quan-ly/lich-hen-hom-nay.php')) . '">Mở danh sách khám</a>');
+                    . e(ten_bac_si($ket_qua['bac_si'])) . '.</span><a class="btn pri" href="' . e(url('quan-ly/lich-hen.php')) . '">Mở danh sách khám</a>');
                 chuyen_huong('quan-ly/tiep-nhan.php');
             }
         } catch (PDOException $loi_csdl) {

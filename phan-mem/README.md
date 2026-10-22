@@ -59,7 +59,7 @@ Dùng XAMPP: chép cả thư mục `phan-mem` vào `htdocs`, mở http://localho
 | [7] Danh mục thuốc | `public/quan-ly/thuoc.php` | 1.3 |
 | [8] Thêm / sửa thuốc | `public/quan-ly/thuoc-form.php` | 1.3 |
 | [14] Tiếp nhận bệnh nhân | `public/quan-ly/tiep-nhan.php` | 3.1 |
-| [15] Lịch hẹn hôm nay | `public/quan-ly/lich-hen-hom-nay.php` | |
+| [15] Danh sách lịch hẹn (từ hôm nay trở đi) | `public/quan-ly/lich-hen.php` | |
 | [16] Hồ sơ bệnh án các lần trước | `public/quan-ly/lich-su-kham.php` | 3.2 |
 | [17] Ghi kết quả khám và kê đơn | `public/quan-ly/ket-qua-kham.php` | 3.3, 4.1, 4.2, 4.3 |
 | [19] Chọn loại báo cáo | `public/quan-ly/bao-cao.php` | 5 |

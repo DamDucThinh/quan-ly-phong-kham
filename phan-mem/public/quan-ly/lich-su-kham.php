@@ -10,10 +10,10 @@ $lich_hen = mot_dong(
      FROM lich_hen lh JOIN benh_nhan bn ON bn.id = lh.benh_nhan_id JOIN bac_si bs ON bs.id = lh.bac_si_id
      WHERE lh.id = ?',
     [(int) ($_GET['id'] ?? 0)]
-) ?? chuyen_huong('quan-ly/lich-hen-hom-nay.php');
+) ?? chuyen_huong('quan-ly/lich-hen.php');
 if (in_array($lich_hen['trang_thai'], ['da_dat', 'da_huy'], true)) {
     dat_thong_diep('err', 'Bệnh nhân ' . e($lich_hen['ho_ten']) . ' chưa được tiếp nhận.');
-    chuyen_huong('quan-ly/lich-hen-hom-nay.php');
+    chuyen_huong('quan-ly/lich-hen.php');
 }
 
 $cac_lan = nhieu_dong(
@@ -44,7 +44,7 @@ mo_trang('Hồ sơ bệnh án ' . $lich_hen['ho_ten'], 'ql', 'today');
 ?>
 <main class="pg">
   <div class="pg-head">
-    <a class="back-link" href="<?= e(url('quan-ly/lich-hen-hom-nay.php')) ?>">‹ Lịch hẹn hôm nay</a>
+    <a class="back-link" href="<?= e(url('quan-ly/lich-hen.php')) ?>">‹ Danh sách lịch hẹn</a>
   </div>
 
   <section class="card row" style="padding:20px 24px;gap:16px 36px">

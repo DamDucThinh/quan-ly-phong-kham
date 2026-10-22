@@ -33,7 +33,7 @@ $phan = $_GET['phan'] ?? 'ca-hai';
 $in_ket_qua = $phan !== 'don-thuoc';
 $in_don = $phan !== 'ket-qua' && $thuoc;
 $quay_lai = $nguoi_dung['vai_tro'] === 'QL'
-    ? url('quan-ly/lich-hen-hom-nay.php')
+    ? url('quan-ly/lich-hen.php')
     : url('benh-nhan/ket-qua.php', ['id' => $benh_an['id']]);
 
 function dau_phieu(array $benh_an, string $tieu_de): void

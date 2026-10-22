@@ -183,6 +183,22 @@ tbody tr:last-child td { border-bottom: 0; }
 .strong { font-weight: 600; }
 .cell-actions { display: inline-flex; gap: 8px; justify-content: flex-end; }
 .row-now td { background: #F5F9FF; }
+/* Bảng gọn hơn để mỗi trang chứa được nhiều dòng */
+.bang-gon td { padding: 9px 16px; }
+/* Thanh chuyển trang: số trang và mũi tên */
+.phan-trang { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+.phan-trang[hidden] { display: none; }
+.phan-trang .tom-tat { font-size: 14px; color: var(--phu); }
+.phan-trang .so-trang { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.phan-trang button { min-width: 40px; height: 40px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--vien-o); background: #FFFFFF; color: var(--nhan); font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; font-variant-numeric: tabular-nums; }
+.phan-trang button:hover:not(:disabled) { border-color: var(--chinh); color: var(--chu); }
+.phan-trang button[aria-current="page"], .phan-trang button[aria-current="page"]:hover { background: var(--dam); border-color: var(--dam); color: #FFFFFF; }
+.phan-trang button:disabled { opacity: .4; cursor: default; }
+.phan-trang .ba-cham { min-width: 24px; text-align: center; color: var(--phu); }
+/* Dòng phân nhóm theo ngày trong danh sách lịch hẹn */
+.nhom-ngay th { background: #EEF6F4; color: var(--chinh-dam); font-size: 14px; padding: 10px 16px; border-top: 1px solid var(--vien); }
+.nhom-ngay th span { color: var(--phu); font-weight: 500; }
+tbody .nhom-ngay:first-child th { border-top: 0; }
 .row-warn td { background: #FFF8E8; }
 .empty-row { padding: 20px; text-align: center; font-size: 15px; color: var(--phu); }
 

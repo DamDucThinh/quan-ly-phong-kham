@@ -100,7 +100,7 @@ function thanh_dieu_huong_ql(string $muc): void
     $cac_muc = [
         'home' => ['Trang chủ', 'quan-ly/trang-chu.php'],
         'reception' => ['Tiếp nhận', 'quan-ly/tiep-nhan.php'],
-        'today' => ['Lịch hẹn', 'quan-ly/lich-hen-hom-nay.php'],
+        'today' => ['Lịch hẹn', 'quan-ly/lich-hen.php'],
         'doctors' => ['Bác sĩ', 'quan-ly/bac-si.php'],
         'drugs' => ['Thuốc', 'quan-ly/thuoc.php'],
         'report' => ['Báo cáo', 'quan-ly/bao-cao.php'],

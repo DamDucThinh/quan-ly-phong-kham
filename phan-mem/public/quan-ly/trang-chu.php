@@ -38,7 +38,7 @@ mo_trang('Trang chủ', 'ql', 'home');
   <section class="card p22 stack g14">
     <div class="row between">
       <h2>Sắp đến giờ hẹn</h2>
-      <a href="<?= e(url('quan-ly/lich-hen-hom-nay.php')) ?>" style="font-size:15px;font-weight:600">Xem cả ngày</a>
+      <a href="<?= e(url('quan-ly/lich-hen.php')) ?>" style="font-size:15px;font-weight:600">Xem tất cả lịch hẹn</a>
     </div>
     <?php if ($sap_den): ?>
       <div class="tbl-box">
