@@ -1,0 +1,21 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=20, label=<<B>DFD MỨC DƯỚI ĐỈNH — CHỨC NĂNG 4: KÊ ĐƠN THUỐC</B><BR/> >, rankdir=LR, nodesep=0.6, ranksep=1.0];
+  node [fontname="Arial", color="black"];
+  edge [fontname="Arial", fontsize=11.5, arrowsize=0.85, penwidth=1.2];
+  BS [shape=box, style="filled,bold", fillcolor="#ffffff", penwidth=1.6, margin="0.25,0.14", fontsize=14, label=<<B>Bác sĩ</B>>];
+  BN [shape=box, style="filled,bold", fillcolor="#ffffff", penwidth=1.6, margin="0.25,0.14", fontsize=14, label=<<B>Bệnh nhân</B>>];
+  P41 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>4.1</B><BR/>Lập<BR/>đơn thuốc>];
+  P42 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>4.2</B><BR/>Kiểm tra<BR/>thuốc>];
+  P43 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>4.3</B><BR/>Lưu và in<BR/>đơn thuốc>];
+  D5 [shape=plain, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7"><TR><TD SIDES="TB" BORDER="2" WIDTH="150"><B>D5</B>  Hồ sơ bệnh án</TD></TR></TABLE>>];
+  D3 [shape=plain, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7"><TR><TD SIDES="TB" BORDER="2" WIDTH="150"><B>D3</B>  Danh mục thuốc</TD></TR></TABLE>>];
+  D6 [shape=plain, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7"><TR><TD SIDES="TB" BORDER="2" WIDTH="150"><B>D6</B>  Đơn thuốc</TD></TR></TABLE>>];
+  BS -> P41 [label=<Chỉ định thuốc>];
+  D5 -> P41 [label=<Chẩn đoán>];
+  P41 -> P42 [label=<Đơn thuốc dự kiến>];
+  D3 -> P42 [label=<Thông tin thuốc>];
+  P42 -> P41 [label=<Thuốc cần điều chỉnh>];
+  P42 -> P43 [label=<Đơn thuốc hợp lệ>];
+  P43 -> D6 [];
+  P43 -> BN [label=<Đơn thuốc>];
+}

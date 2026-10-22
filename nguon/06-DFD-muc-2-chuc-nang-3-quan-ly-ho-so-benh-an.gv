@@ -1,0 +1,23 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=20, label=<<B>DFD MỨC DƯỚI ĐỈNH — CHỨC NĂNG 3: QUẢN LÝ HỒ SƠ BỆNH ÁN</B><BR/> >, rankdir=LR, nodesep=0.6, ranksep=1.0];
+  node [fontname="Arial", color="black"];
+  edge [fontname="Arial", fontsize=11.5, arrowsize=0.85, penwidth=1.2];
+  BN [shape=box, style="filled,bold", fillcolor="#ffffff", penwidth=1.6, margin="0.25,0.14", fontsize=14, label=<<B>Bệnh nhân</B>>];
+  BS [shape=box, style="filled,bold", fillcolor="#ffffff", penwidth=1.6, margin="0.25,0.14", fontsize=14, label=<<B>Bác sĩ</B>>];
+  P31 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>3.1</B><BR/>Tiếp nhận<BR/>bệnh nhân>];
+  P32 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>3.2</B><BR/>Tra cứu<BR/>lịch sử khám>];
+  P33 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>3.3</B><BR/>Cập nhật<BR/>bệnh án>];
+  D4 [shape=plain, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7"><TR><TD SIDES="TB" BORDER="2" WIDTH="150"><B>D4</B>  Lịch hẹn</TD></TR></TABLE>>];
+  D2 [shape=plain, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7"><TR><TD SIDES="TB" BORDER="2" WIDTH="150"><B>D2</B>  Hồ sơ bệnh nhân</TD></TR></TABLE>>];
+  D5 [shape=plain, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7"><TR><TD SIDES="TB" BORDER="2" WIDTH="150"><B>D5</B>  Hồ sơ bệnh án</TD></TR></TABLE>>];
+  BN -> P31 [label=<Thông tin bệnh nhân, lý do khám>];
+  D4 -> P31 [label=<Lịch hẹn trong ngày>];
+  P31 -> D2 [dir=both];
+  P31 -> P32 [label=<Phiếu tiếp nhận>];
+  P31 -> P33 [label=<Phiếu tiếp nhận>];
+  D5 -> P32 [label=<Lịch sử khám>];
+  P32 -> BS [label=<Hồ sơ bệnh án>];
+  BS -> P33 [label=<Kết quả khám, chẩn đoán>];
+  P33 -> D5 [];
+  P33 -> BN [label=<Phiếu kết quả khám>];
+}

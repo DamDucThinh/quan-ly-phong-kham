@@ -1,0 +1,24 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=20, label=<<B>DFD MỨC KHUNG CẢNH (MỨC 0)</B><BR/> >, rankdir=TB, nodesep=0.9, ranksep=1.1];
+  node [fontname="Arial", color="black"];
+  edge [fontname="Arial", fontsize=11.5, arrowsize=0.85, penwidth=1.2];
+  BN [shape=box, style="filled,bold", fillcolor="#ffffff", penwidth=1.6, margin="0.25,0.14", fontsize=14, label=<<B>Bệnh nhân</B>>];
+  BS [shape=box, style="filled,bold", fillcolor="#ffffff", penwidth=1.6, margin="0.25,0.14", fontsize=14, label=<<B>Bác sĩ</B>>];
+  QL [shape=box, style="filled,bold", fillcolor="#ffffff", penwidth=1.6, margin="0.25,0.14", fontsize=14, label=<<B>Quản lý phòng khám</B>>];
+  HT [shape=circle, fixedsize=true, width=2.5, penwidth=1.6, fontsize=13, label=<<B>0</B><BR/>HỆ THỐNG<BR/>QUẢN LÝ<BR/>PHÒNG KHÁM>];
+  {rank=same; BN; HT; BS;}
+  BN -> HT [label=<Yêu cầu đặt/đổi/hủy lịch>];
+  BN -> HT [label=<Thông tin bệnh nhân, lý do khám>];
+  HT -> BN [label=<Thông báo lịch hẹn>];
+  HT -> BN [label=<Phiếu kết quả khám>];
+  HT -> BN [label=<Đơn thuốc>];
+  BS -> HT [label=<Lịch làm việc>];
+  BS -> HT [label=<Kết quả khám, chẩn đoán>];
+  BS -> HT [label=<Chỉ định thuốc>];
+  HT -> BS [label=<Danh sách lịch hẹn>];
+  HT -> BS [label=<Hồ sơ bệnh án>];
+  QL -> HT [label=<Thông tin bác sĩ>];
+  QL -> HT [label=<Thông tin thuốc>];
+  QL -> HT [label=<Yêu cầu báo cáo>];
+  HT -> QL [label=<Báo cáo tình hình khám chữa bệnh>];
+}

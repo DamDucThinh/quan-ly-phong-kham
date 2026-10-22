@@ -1,0 +1,18 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=20, label=<<B>DFD MỨC DƯỚI ĐỈNH — CHỨC NĂNG 1: QUẢN LÝ DANH MỤC</B><BR/> >, rankdir=LR, nodesep=0.6, ranksep=1.2];
+  node [fontname="Arial", color="black"];
+  edge [fontname="Arial", fontsize=11.5, arrowsize=0.85, penwidth=1.2];
+  QL [shape=box, style="filled,bold", fillcolor="#ffffff", penwidth=1.6, margin="0.25,0.14", fontsize=14, label=<<B>Quản lý phòng khám</B>>];
+  BS [shape=box, style="filled,bold", fillcolor="#ffffff", penwidth=1.6, margin="0.25,0.14", fontsize=14, label=<<B>Bác sĩ</B>>];
+  P11 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>1.1</B><BR/>Cập nhật<BR/>thông tin<BR/>bác sĩ>];
+  P12 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>1.2</B><BR/>Cập nhật<BR/>lịch làm việc>];
+  P13 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>1.3</B><BR/>Cập nhật<BR/>danh mục thuốc>];
+  D1 [shape=plain, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7"><TR><TD SIDES="TB" BORDER="2" WIDTH="150"><B>D1</B>  Hồ sơ bác sĩ</TD></TR></TABLE>>];
+  D3 [shape=plain, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7"><TR><TD SIDES="TB" BORDER="2" WIDTH="150"><B>D3</B>  Danh mục thuốc</TD></TR></TABLE>>];
+  QL -> P11 [label=<Thông tin bác sĩ>];
+  P11 -> D1 [];
+  BS -> P12 [label=<Lịch làm việc>];
+  P12 -> D1 [dir=both];
+  QL -> P13 [label=<Thông tin thuốc>];
+  P13 -> D3 [dir=both];
+}

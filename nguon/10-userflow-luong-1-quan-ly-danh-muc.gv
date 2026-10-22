@@ -1,0 +1,75 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=20, label=<<B>USERFLOW — LUỒNG 1: QUẢN LÝ DANH MỤC</B><BR/><FONT POINT-SIZE="13">Người dùng: Quản lý phòng khám · Ứng với chức năng 1 (BFD) và DFD mức 2 — chức năng 1</FONT><BR/> >, rankdir=TB, nodesep=0.55, ranksep=0.5, newrank=true];
+  node [fontname="Arial", color="black", fontsize=13, penwidth=1.4, margin="0.18,0.08"];
+  edge [fontname="Arial", fontsize=11.5, arrowsize=0.85, penwidth=1.2];
+
+  S [shape=oval, style=bold, penwidth=1.6, label=<<B>Bắt đầu</B><BR/><FONT POINT-SIZE="11">Trang chủ Quản lý phòng khám [3]</FONT>>];
+  QA [shape=diamond, fontsize=12, label=<Chọn<BR/>danh mục>];
+  S -> QA;
+
+  // ----- 1.1 Thông tin bác sĩ -----
+  P4 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[4]</B> Danh sách bác sĩ<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám · CN 1.1 · đọc D1</I></FONT>>];
+  P5 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[5]</B> Thêm / sửa thông tin bác sĩ<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám · CN 1.1</I></FONT>>];
+  QB [shape=diamond, fontsize=12, label=<Thông tin<BR/>hợp lệ?>];
+  NB [shape=note, label=<Báo lỗi tại ô<BR/>nhập sai / thiếu>];
+  WB [shape=box, style=filled, fillcolor="#eeeeee", label=<Lưu hồ sơ bác sĩ<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 1.1 · ghi D1</I></FONT>>];
+  UB [shape=note, label=<Bác sĩ hiện ra để bệnh nhân<BR/>chọn khi đặt lịch [9]>];
+
+  QA -> P4 [label=<Bác sĩ>];
+  P4 -> P5 [label=<  Thêm mới /<BR/>  chọn để sửa>];
+  P5 -> QB;
+  QB -> NB [label=<Không>];
+  NB -> P5 [constraint=false];
+  QB -> WB [label=<  Có>];
+  WB -> UB;
+
+  // ----- 1.2 Lịch làm việc bác sĩ -----
+  P6 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[6]</B> Lịch làm việc bác sĩ:<BR/>chọn bác sĩ, thêm / sửa ca<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám · CN 1.2 · đọc D1</I></FONT>>];
+  QL [shape=diamond, fontsize=12, label=<Ca làm việc<BR/>hợp lệ?>];
+  NL [shape=note, label=<Báo ca bị trùng giờ<BR/>hoặc thiếu thông tin>];
+  WL [shape=box, style=filled, fillcolor="#eeeeee", label=<Lưu lịch làm việc<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 1.2 · ghi D1</I></FONT>>];
+  UL [shape=note, label=<Dùng khi kiểm tra<BR/>lịch trống (CN 2.2)>];
+
+  QA -> P6 [label=<  Lịch làm việc>];
+  P6 -> QL;
+  QL -> NL [label=<Không>];
+  NL -> P6 [constraint=false];
+  QL -> WL [label=<  Có>];
+  WL -> UL;
+
+  // ----- 1.3 Danh mục thuốc -----
+  P7 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[7]</B> Danh mục thuốc<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám · CN 1.3 · đọc D3</I></FONT>>];
+  P8 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[8]</B> Thêm / sửa thông tin thuốc<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám · CN 1.3</I></FONT>>];
+  QT [shape=diamond, fontsize=12, label=<Thông tin<BR/>hợp lệ?>];
+  NT [shape=note, label=<Báo lỗi tại ô<BR/>nhập sai / thiếu>];
+  WT [shape=box, style=filled, fillcolor="#eeeeee", label=<Lưu danh mục thuốc<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 1.3 · ghi D3</I></FONT>>];
+  UT [shape=note, label=<Dùng khi kiểm tra thuốc<BR/>lúc kê đơn (CN 4.2)>];
+
+  QA -> P7 [label=<  Thuốc>];
+  P7 -> P8 [label=<  Thêm mới /<BR/>  chọn để sửa>];
+  P8 -> QT;
+  QT -> NT [label=<Không>];
+  NT -> P8 [constraint=false];
+  QT -> WT [label=<  Có>];
+  WT -> UT;
+
+  E [shape=oval, style=bold, penwidth=1.6, label=<<B>Kết thúc</B>>];
+  UB -> E;
+  UL -> E;
+  UT -> E;
+
+  // ----- Chú thích -----
+  subgraph cluster_legend {
+    label=<<B>Chú thích</B>>; fontsize=12; style=dashed; color="#888888"; labeljust=l; margin=12;
+    node [fontsize=11, margin="0.12,0.05"];
+    G1 [shape=oval, style=bold, label=<Bắt đầu / Kết thúc>];
+    G2 [shape=box, style="rounded,bold", label=<[n] Màn hình người dùng>];
+    G3 [shape=box, style=filled, fillcolor="#eeeeee", label=<Hệ thống xử lý>];
+    G4 [shape=diamond, label=<Rẽ nhánh>];
+    G5 [shape=note, label=<Thông báo / phiếu>];
+    G6 [shape=cds, label=<Sang luồng khác>];
+    {rank=same; G1; G2; G3; G4; G5; G6;}
+    G1 -> G2 -> G3 -> G4 -> G5 -> G6 [style=invis];
+  }
+  E -> G3 [style=invis];
+}

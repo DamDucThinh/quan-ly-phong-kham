@@ -1,0 +1,25 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=20, label=<<B>DFD MỨC DƯỚI ĐỈNH — CHỨC NĂNG 2: QUẢN LÝ LỊCH HẸN</B><BR/> >, rankdir=LR, nodesep=0.55, ranksep=1.0];
+  node [fontname="Arial", color="black"];
+  edge [fontname="Arial", fontsize=11.5, arrowsize=0.85, penwidth=1.2];
+  BN [shape=box, style="filled,bold", fillcolor="#ffffff", penwidth=1.6, margin="0.25,0.14", fontsize=14, label=<<B>Bệnh nhân</B>>];
+  BS [shape=box, style="filled,bold", fillcolor="#ffffff", penwidth=1.6, margin="0.25,0.14", fontsize=14, label=<<B>Bác sĩ</B>>];
+  P21 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>2.1</B><BR/>Tiếp nhận<BR/>yêu cầu<BR/>đặt lịch>];
+  P22 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>2.2</B><BR/>Kiểm tra<BR/>lịch trống>];
+  P23 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>2.3</B><BR/>Xác nhận<BR/>lịch hẹn>];
+  P24 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>2.4</B><BR/>Đổi, hủy<BR/>lịch hẹn>];
+  D1 [shape=plain, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7"><TR><TD SIDES="TB" BORDER="2" WIDTH="150"><B>D1</B>  Hồ sơ bác sĩ</TD></TR></TABLE>>];
+  D4 [shape=plain, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7"><TR><TD SIDES="TB" BORDER="2" WIDTH="150"><B>D4</B>  Lịch hẹn</TD></TR></TABLE>>];
+  BN -> P21 [label=<Yêu cầu đặt/đổi/hủy lịch>];
+  P21 -> P22 [label=<Yêu cầu đặt lịch mới>];
+  P21 -> P24 [label=<Yêu cầu đổi/hủy lịch>];
+  D1 -> P22 [label=<Lịch làm việc>];
+  D4 -> P22 [label=<Lịch đã đặt>];
+  P22 -> P23 [label=<Khung giờ trống>];
+  P23 -> D4 [];
+  P23 -> BN [label=<Thông báo lịch hẹn>];
+  P23 -> BS [label=<Danh sách lịch hẹn>];
+  P24 -> D4 [dir=both];
+  P24 -> P22 [label=<Yêu cầu chọn giờ mới>];
+  P24 -> BN [label=<Thông báo lịch hẹn>];
+}

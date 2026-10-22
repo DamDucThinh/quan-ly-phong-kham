@@ -1,0 +1,17 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=20, label=<<B>DFD MỨC DƯỚI ĐỈNH — CHỨC NĂNG 5: BÁO CÁO THỐNG KÊ</B><BR/> >, rankdir=TB, nodesep=1.4, ranksep=1.0];
+  node [fontname="Arial", color="black"];
+  edge [fontname="Arial", fontsize=11.5, arrowsize=0.85, penwidth=1.2];
+  QL [shape=box, style="filled,bold", fillcolor="#ffffff", penwidth=1.6, margin="0.25,0.14", fontsize=14, label=<<B>Quản lý phòng khám</B>>];
+  P51 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>5.1</B><BR/>Thống kê<BR/>lượt khám>];
+  P52 [shape=circle, fixedsize=true, width=1.55, penwidth=1.6, fontsize=13, label=<<B>5.2</B><BR/>Báo cáo<BR/>tình hình bệnh>];
+  D4 [shape=plain, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7"><TR><TD SIDES="TB" BORDER="2" WIDTH="150"><B>D4</B>  Bệnh án</TD></TR></TABLE>>];
+  {rank=same; P51; P52;}
+  P51 -> P52 [style=invis, minlen=3];
+  QL -> P51 [label=<Yêu cầu báo cáo>];
+  QL -> P51 [label=<Báo cáo lượt khám>, dir=back];
+  P51 -> D4 [dir=back];
+  QL -> P52 [label=<Yêu cầu báo cáo>];
+  QL -> P52 [label=<Báo cáo tình hình bệnh>, dir=back];
+  P52 -> D4 [dir=back];
+}

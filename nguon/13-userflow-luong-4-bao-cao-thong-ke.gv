@@ -1,0 +1,51 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=20, label=<<B>USERFLOW — LUỒNG 4: BÁO CÁO THỐNG KÊ</B><BR/><FONT POINT-SIZE="13">Người dùng: Quản lý phòng khám · Ứng với chức năng 5 (BFD) và DFD mức 2 — chức năng 5</FONT><BR/> >, rankdir=TB, nodesep=0.6, ranksep=0.5, newrank=true];
+  node [fontname="Arial", color="black", fontsize=13, penwidth=1.4, margin="0.18,0.08"];
+  edge [fontname="Arial", fontsize=11.5, arrowsize=0.85, penwidth=1.2];
+
+  S [shape=oval, style=bold, penwidth=1.6, label=<<B>Bắt đầu</B><BR/><FONT POINT-SIZE="11">Trang chủ Quản lý phòng khám [3]</FONT>>];
+  P19 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[19]</B> Chọn loại báo cáo, khoảng thời gian<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám · gửi yêu cầu báo cáo</I></FONT>>];
+  Q1 [shape=diamond, fontsize=12, label=<Khoảng thời<BR/>gian hợp lệ?>];
+  N1 [shape=note, label=<Báo ngày bắt đầu<BR/>sau ngày kết thúc>];
+  Q2 [shape=diamond, fontsize=12, label=<Loại<BR/>báo cáo?>];
+  T51 [shape=box, style=filled, fillcolor="#eeeeee", label=<Thống kê lượt khám<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 5.1 · đọc D5</I></FONT>>];
+  T52 [shape=box, style=filled, fillcolor="#eeeeee", label=<Thống kê sử dụng thuốc<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 5.2 · đọc D6</I></FONT>>];
+  Q3 [shape=diamond, fontsize=12, label=<Có dữ liệu<BR/>trong kỳ?>];
+  N2 [shape=note, label=<Báo không có dữ liệu<BR/>trong khoảng đã chọn>];
+  P20 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[20]</B> Kết quả thống kê<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám</I></FONT>>];
+  N3 [shape=note, label=<Báo cáo tình hình<BR/>khám chữa bệnh>];
+  Q4 [shape=diamond, fontsize=12, label=<Xem báo<BR/>cáo khác?>];
+  E [shape=oval, style=bold, penwidth=1.6, label=<<B>Kết thúc</B>>];
+
+  S -> P19;
+  P19 -> Q1;
+  Q1 -> N1 [label=<Không>];
+  N1 -> P19 [constraint=false];
+  Q1 -> Q2 [label=<  Có>];
+  Q2 -> T51 [label=<Lượt khám>];
+  Q2 -> T52 [label=<  Sử dụng thuốc>];
+  T51 -> Q3;
+  T52 -> Q3;
+  Q3 -> N2 [label=<Không>];
+  N2 -> P19 [constraint=false];
+  Q3 -> P20 [label=<  Có>];
+  P20 -> N3;
+  N3 -> Q4;
+  Q4 -> P19 [label=<Có>, constraint=false];
+  Q4 -> E [label=<  Không>];
+
+  // ----- Chú thích -----
+  subgraph cluster_legend {
+    label=<<B>Chú thích</B>>; fontsize=12; style=dashed; color="#888888"; labeljust=l; margin=12;
+    node [fontsize=11, margin="0.12,0.05"];
+    G1 [shape=oval, style=bold, label=<Bắt đầu / Kết thúc>];
+    G2 [shape=box, style="rounded,bold", label=<[n] Màn hình người dùng>];
+    G3 [shape=box, style=filled, fillcolor="#eeeeee", label=<Hệ thống xử lý>];
+    G4 [shape=diamond, label=<Rẽ nhánh>];
+    G5 [shape=note, label=<Thông báo / phiếu>];
+    G6 [shape=cds, label=<Sang luồng khác>];
+    {rank=same; G1; G2; G3; G4; G5; G6;}
+    G1 -> G2 -> G3 -> G4 -> G5 -> G6 [style=invis];
+  }
+  E -> G3 [style=invis];
+}

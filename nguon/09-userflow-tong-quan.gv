@@ -1,0 +1,52 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=20, label=<<B>USERFLOW TỔNG QUAN — HỆ THỐNG QUẢN LÝ PHÒNG KHÁM</B><BR/><FONT POINT-SIZE="13">Mô hình phòng khám quy mô nhỏ · 2 người dùng phần mềm: Quản lý phòng khám, Bệnh nhân</FONT><BR/> >, rankdir=TB, nodesep=0.7, ranksep=0.6, newrank=true];
+  node [fontname="Arial", color="black", fontsize=13, penwidth=1.4, margin="0.18,0.08"];
+  edge [fontname="Arial", fontsize=11.5, arrowsize=0.85, penwidth=1.2];
+
+  S [shape=oval, style=bold, penwidth=1.6, label=<<B>Bắt đầu</B><BR/><FONT POINT-SIZE="11">Người dùng mở hệ thống</FONT>>];
+  P1 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[1]</B> Đăng nhập<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám · Bệnh nhân</I></FONT>>];
+  Q1 [shape=diamond, fontsize=12, label=<Thông tin<BR/>đúng?>];
+  N1 [shape=note, label=<Báo sai tên đăng nhập<BR/>hoặc mật khẩu>];
+  Q2 [shape=diamond, fontsize=12, label=<Vai trò?>];
+
+  P2 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[2]</B> Trang chủ Bệnh nhân<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Bệnh nhân</I></FONT>>];
+  P3 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[3]</B> Trang chủ Quản lý phòng khám<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám</I></FONT>>];
+
+  L1 [shape=cds, margin="0.22,0.1", label=<<B>Luồng 1</B>: Quản lý danh mục<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Chức năng 1 · màn [4]–[8]</I></FONT>>];
+  L2 [shape=cds, margin="0.22,0.1", label=<<B>Luồng 2</B>: Đặt, đổi, hủy lịch hẹn<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Chức năng 2 · màn [9]–[13]</I></FONT>>];
+  L3 [shape=cds, margin="0.22,0.1", label=<<B>Luồng 3</B>: Tiếp nhận, khám bệnh, kê đơn<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Chức năng 3, 4 · màn [14]–[18]</I></FONT>>];
+  L4 [shape=cds, margin="0.22,0.1", label=<<B>Luồng 4</B>: Báo cáo thống kê<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Chức năng 5 · màn [19]–[20]</I></FONT>>];
+
+  S -> P1;
+  P1 -> Q1;
+  Q1 -> N1 [label=<Không>];
+  N1 -> P1 [constraint=false];
+  Q1 -> Q2 [label=<  Có>];
+  Q2 -> P2 [label=<Bệnh nhân>];
+  Q2 -> P3 [label=<Quản lý<BR/>phòng khám>];
+
+  P2 -> L2 [label=<Đặt / đổi /<BR/>hủy lịch>];
+  P3 -> L3 [label=<Tiếp nhận, ghi kết quả<BR/>khám, kê đơn>];
+  P3 -> L1 [label=<Bác sĩ, lịch làm<BR/>việc, thuốc>];
+  P3 -> L4 [label=<Xem báo cáo>];
+
+  {rank=same; L2; L3; L1; L4;}
+  L2 -> L3 [style=dashed, label=<Đến ngày hẹn,<BR/>bệnh nhân đến khám>];
+  L3 -> L1 -> L4 [style=invis];
+
+  // ----- Chú thích -----
+  subgraph cluster_legend {
+    label=<<B>Chú thích</B>>; fontsize=12; style=dashed; color="#888888"; labeljust=l; margin=12;
+    node [fontsize=11, margin="0.12,0.05"];
+    G1 [shape=oval, style=bold, label=<Bắt đầu / Kết thúc>];
+    G2 [shape=box, style="rounded,bold", label=<[n] Màn hình người dùng>];
+    G3 [shape=box, style=filled, fillcolor="#eeeeee", label=<Hệ thống xử lý>];
+    G4 [shape=diamond, label=<Rẽ nhánh>];
+    G5 [shape=note, label=<Thông báo / phiếu>];
+    G6 [shape=cds, label=<Sang luồng khác>];
+    {rank=same; G1; G2; G3; G4; G5; G6;}
+    G1 -> G2 -> G3 -> G4 -> G5 -> G6 [style=invis];
+  }
+  L3 -> G3 [style=invis];
+  L1 -> G4 [style=invis];
+}

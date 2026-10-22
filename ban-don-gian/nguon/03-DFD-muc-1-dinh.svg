@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1030" viewBox="0 0 1800 1030">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker></defs>
+<rect width="1800" height="1030" fill="#fff"/>
+<text x="900.0" y="62" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold">DFD MỨC ĐỈNH (MỨC 1)</text>
+<path d="M 189.4 577.0 L 426.4 351.1" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 1470.0 140.0 L 480.0 140.0 L 480.0 226.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 553.3 310.2 L 745.0 336.8" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 546.2 333.1 L 796.0 458.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 1526.5 168.0 L 1271.6 281.3" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 1261.9 259.4 L 1470.0 166.9" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 935.0 336.8 L 1126.7 310.2" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 884.0 458.0 L 1133.8 333.1" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 1200.0 374.0 L 1200.0 488.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
+<path d="M 1125.0 732.0 L 913.0 732.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 913.0 708.0 L 1125.0 708.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 840.0 502.0 L 840.0 646.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 840.0 794.0 L 840.0 898.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
+<path d="M 1275.0 720.0 L 1486.0 720.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 919.2 898.0 L 1488.7 739.8" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 1560.0 794.0 L 1560.0 898.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
+<path d="M 1560.0 646.0 L 1560.0 168.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 205.6 633.0 L 436.4 860.2" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 419.5 877.3 L 171.3 633.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M 745.0 920.0 L 554.0 920.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="1470.0" y="112.0" width="180" height="56" fill="#fff" stroke="#000" stroke-width="2.2"/>
+<text x="1560" y="146" text-anchor="middle" font-family="Arial" font-size="17" font-weight="bold">Bệnh nhân</text>
+<rect x="45.0" y="577.0" width="230" height="56" fill="#fff" stroke="#000" stroke-width="2.2"/>
+<text x="160" y="611" text-anchor="middle" font-family="Arial" font-size="17" font-weight="bold">Quản lý phòng khám</text>
+<rect x="1125.0" y="692.0" width="150" height="56" fill="#fff" stroke="#000" stroke-width="2.2"/>
+<text x="1200" y="726" text-anchor="middle" font-family="Arial" font-size="17" font-weight="bold">Bác sĩ</text>
+<circle cx="480" cy="300" r="74" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="480.0" y="286.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">1</text>
+<text x="480.0" y="305.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Quản lý</text>
+<text x="480.0" y="324.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">thông tin</text>
+<circle cx="1200" cy="300" r="74" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1200.0" y="286.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">2</text>
+<text x="1200.0" y="305.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Quản lý</text>
+<text x="1200.0" y="324.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">lịch hẹn</text>
+<circle cx="840" cy="720" r="74" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="840.0" y="706.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">3</text>
+<text x="840.0" y="725.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Quản lý hồ sơ</text>
+<text x="840.0" y="744.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">bệnh án</text>
+<circle cx="1560" cy="720" r="74" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1560.0" y="706.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">4</text>
+<text x="1560.0" y="725.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Kê đơn</text>
+<text x="1560.0" y="744.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">thuốc</text>
+<circle cx="480" cy="920" r="74" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="480.0" y="906.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold">5</text>
+<text x="480.0" y="925.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Báo cáo</text>
+<text x="480.0" y="944.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">thống kê</text>
+<rect x="745.0" y="328.0" width="190" height="44" fill="#fff"/>
+<line x1="745.0" y1="328.0" x2="935.0" y2="328.0" stroke="#000" stroke-width="2.2"/>
+<line x1="745.0" y1="372.0" x2="935.0" y2="372.0" stroke="#000" stroke-width="2.2"/>
+<text x="840" y="355" text-anchor="middle" font-family="Arial" font-size="15"><tspan font-weight="bold">D1</tspan>  Bác sĩ</text>
+<rect x="745.0" y="458.0" width="190" height="44" fill="#fff"/>
+<line x1="745.0" y1="458.0" x2="935.0" y2="458.0" stroke="#000" stroke-width="2.2"/>
+<line x1="745.0" y1="502.0" x2="935.0" y2="502.0" stroke="#000" stroke-width="2.2"/>
+<text x="840" y="485" text-anchor="middle" font-family="Arial" font-size="15"><tspan font-weight="bold">D2</tspan>  Bệnh nhân</text>
+<rect x="1110.0" y="488.0" width="180" height="44" fill="#fff"/>
+<line x1="1110.0" y1="488.0" x2="1290.0" y2="488.0" stroke="#000" stroke-width="2.2"/>
+<line x1="1110.0" y1="532.0" x2="1290.0" y2="532.0" stroke="#000" stroke-width="2.2"/>
+<text x="1200" y="515" text-anchor="middle" font-family="Arial" font-size="15"><tspan font-weight="bold">D3</tspan>  Lịch hẹn</text>
+<rect x="745.0" y="898.0" width="190" height="44" fill="#fff"/>
+<line x1="745.0" y1="898.0" x2="935.0" y2="898.0" stroke="#000" stroke-width="2.2"/>
+<line x1="745.0" y1="942.0" x2="935.0" y2="942.0" stroke="#000" stroke-width="2.2"/>
+<text x="840" y="925" text-anchor="middle" font-family="Arial" font-size="15"><tspan font-weight="bold">D4</tspan>  Bệnh án</text>
+<rect x="1465.0" y="898.0" width="190" height="44" fill="#fff"/>
+<line x1="1465.0" y1="898.0" x2="1655.0" y2="898.0" stroke="#000" stroke-width="2.2"/>
+<line x1="1465.0" y1="942.0" x2="1655.0" y2="942.0" stroke="#000" stroke-width="2.2"/>
+<text x="1560" y="925" text-anchor="middle" font-family="Arial" font-size="15"><tspan font-weight="bold">D5</tspan>  Đơn thuốc</text>
+<rect x="288.1" y="491.5" width="112.0" height="21.0" fill="#fff"/>
+<text x="344.1" y="507.3" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Thông tin bác sĩ</text>
+<rect x="969.6" y="113.0" width="140.0" height="21.0" fill="#fff"/>
+<text x="1039.6" y="128.8" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Thông tin bệnh nhân</text>
+<rect x="1347.0" y="254.5" width="140.0" height="21.0" fill="#fff"/>
+<text x="1417.0" y="270.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Yêu cầu đặt/hủy lịch</text>
+<rect x="1283.3" y="164.0" width="131.0" height="21.0" fill="#fff"/>
+<text x="1348.8" y="179.7" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Thông báo lịch hẹn</text>
+<rect x="931.5" y="738.0" width="175.0" height="21.0" fill="#fff"/>
+<text x="1019.0" y="753.8" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Kết quả khám, chẩn đoán</text>
+<rect x="966.5" y="681.0" width="105.0" height="21.0" fill="#fff"/>
+<text x="1019.0" y="696.8" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Hồ sơ bệnh án</text>
+<rect x="1330.0" y="693.0" width="101.0" height="21.0" fill="#fff"/>
+<text x="1380.5" y="708.8" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Chỉ định thuốc</text>
+<rect x="1128.8" y="790.6" width="79.0" height="21.0" fill="#fff"/>
+<text x="1168.3" y="806.3" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Chẩn đoán</text>
+<rect x="1567.0" y="396.5" width="77.0" height="21.0" fill="#fff"/>
+<text x="1605.5" y="412.2" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Đơn thuốc</text>
+<rect x="300.7" y="696.8" width="118.0" height="21.0" fill="#fff"/>
+<text x="359.7" y="712.6" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Yêu cầu báo cáo</text>
+<rect x="190.0" y="780.3" width="122.0" height="40.0" fill="#fff"/>
+<text x="251.0" y="796.0" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">Báo cáo tình hình</text>
+<text x="251.0" y="815.0" text-anchor="middle" font-family="Arial" font-size="15" font-weight="normal">khám chữa bệnh</text>
+</svg>

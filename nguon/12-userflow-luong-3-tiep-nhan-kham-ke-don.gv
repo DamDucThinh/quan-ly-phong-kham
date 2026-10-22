@@ -1,0 +1,96 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=20, label=<<B>USERFLOW — LUỒNG 3: TIẾP NHẬN, KHÁM BỆNH, KÊ ĐƠN THUỐC</B><BR/><FONT POINT-SIZE="13">Người dùng: Quản lý phòng khám (bệnh nhân khai thông tin, bác sĩ khám và chỉ định thuốc) · Ứng với chức năng 3, 4 (BFD) và DFD mức 2 — chức năng 3, 4</FONT><BR/> >, rankdir=TB, nodesep=0.5, ranksep=0.5, newrank=true];
+  node [fontname="Arial", color="black", fontsize=13, penwidth=1.4, margin="0.18,0.08"];
+  edge [fontname="Arial", fontsize=11.5, arrowsize=0.85, penwidth=1.2];
+
+  // ----- Cột 1: Tiếp nhận (chức năng 3.1) -----
+  subgraph cluster_tiepnhan {
+    label=<<B>① Tiếp nhận bệnh nhân</B> — CN 3.1>; fontsize=13; style=dashed; color="#888888"; margin=14;
+    S [shape=oval, style=bold, penwidth=1.6, label=<<B>Bắt đầu</B><BR/><FONT POINT-SIZE="11">Bệnh nhân đến phòng khám<BR/>theo lịch hẹn</FONT>>];
+    P14 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[14]</B> Tiếp nhận: nhập thông tin, lý do khám<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám · CN 3.1 · bệnh nhân khai tại quầy</I></FONT>>];
+    T31 [shape=box, style=filled, fillcolor="#eeeeee", label=<Tìm lịch hẹn trong ngày<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 3.1 · đọc D4</I></FONT>>];
+    Q1 [shape=diamond, fontsize=12, label=<Có lịch hẹn<BR/>hôm nay?>];
+    C2 [shape=cds, margin="0.22,0.1", label=<Sang <B>Luồng 2</B>:<BR/>bệnh nhân đặt lịch [9]>];
+    Q2 [shape=diamond, fontsize=12, label=<Đã có hồ sơ<BR/>bệnh nhân?>];
+    H1 [shape=box, style=filled, fillcolor="#eeeeee", label=<Tạo hồ sơ bệnh nhân mới<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 3.1 · ghi D2</I></FONT>>];
+    H2 [shape=box, style=filled, fillcolor="#eeeeee", label=<Cập nhật hồ sơ bệnh nhân<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 3.1 · đọc, ghi D2</I></FONT>>];
+    N1 [shape=note, label=<Phiếu tiếp nhận<BR/>chuyển sang khám>];
+  }
+  S -> P14;
+  P14 -> T31;
+  T31 -> Q1;
+  Q1 -> C2 [label=<Không>];
+  Q1 -> Q2 [label=<  Có>];
+  Q2 -> H1 [label=<Chưa có<BR/>(lần đầu)>];
+  Q2 -> H2 [label=<  Đã có>];
+  H1 -> N1;
+  H2 -> N1;
+
+  // ----- Cột 2: Khám bệnh (chức năng 3.2, 3.3) -----
+  subgraph cluster_kham {
+    label=<<B>② Khám bệnh</B> — CN 3.2, 3.3>; fontsize=13; style=dashed; color="#888888"; margin=14;
+    P15 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[15]</B> Danh sách lịch hẹn hôm nay:<BR/>gọi bệnh nhân vào khám<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám · danh sách từ CN 2.3</I></FONT>>];
+    T32 [shape=box, style=filled, fillcolor="#eeeeee", label=<Tra cứu lịch sử khám<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 3.2 · đọc D5</I></FONT>>];
+    Q3 [shape=diamond, fontsize=12, label=<Có lịch sử<BR/>khám?>];
+    P16 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[16]</B> Xem hồ sơ bệnh án<BR/>các lần trước<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám · CN 3.2 · đưa bác sĩ xem</I></FONT>>];
+    P17 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[17]</B> Ghi kết quả khám,<BR/>chẩn đoán của bác sĩ<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám · CN 3.3 Cập nhật bệnh án</I></FONT>>];
+    Q4 [shape=diamond, fontsize=12, label=<Đủ thông tin<BR/>bắt buộc?>];
+    N2 [shape=note, label=<Báo thiếu kết quả<BR/>hoặc chẩn đoán>];
+    W33 [shape=box, style=filled, fillcolor="#eeeeee", label=<Lưu bệnh án<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 3.3 · ghi D5</I></FONT>>];
+    N3 [shape=note, label=<Phiếu kết quả khám<BR/>gửi Bệnh nhân>];
+  }
+  P15 -> T32;
+  T32 -> Q3;
+  Q3 -> P16 [label=<  Có>];
+  Q3 -> P17 [label=<Không<BR/>(khám lần đầu)>];
+  P16 -> P17;
+  P17 -> Q4;
+  Q4 -> N2 [label=<Không>];
+  N2 -> P17 [constraint=false];
+  Q4 -> W33 [label=<  Có>];
+  W33 -> N3;
+
+  // ----- Cột 3: Kê đơn thuốc (chức năng 4) -----
+  subgraph cluster_kedon {
+    label=<<B>③ Kê đơn thuốc</B> — CN 4.1, 4.2, 4.3>; fontsize=13; style=dashed; color="#888888"; margin=14;
+    Q5 [shape=diamond, fontsize=12, label=<Bác sĩ có<BR/>chỉ định thuốc?>];
+    P18 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[18]</B> Lập đơn thuốc theo<BR/>chỉ định của bác sĩ<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Quản lý phòng khám · CN 4.1 · lấy chẩn đoán từ D5</I></FONT>>];
+    T42 [shape=box, style=filled, fillcolor="#eeeeee", label=<Kiểm tra thuốc theo danh mục<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 4.2 · đọc D3</I></FONT>>];
+    Q6 [shape=diamond, fontsize=12, label=<Đơn thuốc<BR/>hợp lệ?>];
+    N4 [shape=note, label=<Báo thuốc<BR/>cần điều chỉnh>];
+    W43 [shape=box, style=filled, fillcolor="#eeeeee", label=<Lưu và in đơn thuốc<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 4.3 · ghi D6</I></FONT>>];
+    N5 [shape=note, label=<Đơn thuốc<BR/>gửi Bệnh nhân>];
+    E [shape=oval, style=bold, penwidth=1.6, label=<<B>Kết thúc</B><BR/><FONT POINT-SIZE="11">Bệnh nhân ra về</FONT>>];
+  }
+  Q5 -> E [label=<Không>];
+  Q5 -> P18 [label=<  Có>];
+  P18 -> T42;
+  T42 -> Q6;
+  Q6 -> N4 [label=<Không>];
+  N4 -> P18 [constraint=false];
+  Q6 -> W43 [label=<  Có>];
+  W43 -> N5;
+  N5 -> E;
+
+  // ----- Nối giữa các cột -----
+  {rank=same; S; P15; Q5;}
+  N1 -> P15 [constraint=false, label=<Đến lượt khám>];
+  N3 -> Q5 [constraint=false];
+
+  // ----- Chú thích -----
+  subgraph cluster_legend {
+    label=<<B>Chú thích</B>>; fontsize=12; style=dashed; color="#888888"; labeljust=l; margin=12;
+    node [fontsize=11, margin="0.12,0.05"];
+    G1 [shape=oval, style=bold, label=<Bắt đầu / Kết thúc>];
+    G2 [shape=box, style="rounded,bold", label=<[n] Màn hình người dùng>];
+    G3 [shape=box, style=filled, fillcolor="#eeeeee", label=<Hệ thống xử lý>];
+    G4 [shape=diamond, label=<Rẽ nhánh>];
+    G5 [shape=note, label=<Thông báo / phiếu>];
+    G6 [shape=cds, label=<Sang luồng khác>];
+    {rank=same; G1; G2; G3; G4; G5; G6;}
+    G1 -> G2 -> G3 -> G4 -> G5 -> G6 [style=invis];
+  }
+  N1 -> G1 [style=invis];
+  N3 -> G3 [style=invis];
+  E -> G5 [style=invis];
+}

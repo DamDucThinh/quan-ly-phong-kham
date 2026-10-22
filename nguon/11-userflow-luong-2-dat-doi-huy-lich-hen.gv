@@ -1,0 +1,82 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=20, label=<<B>USERFLOW — LUỒNG 2: ĐẶT, ĐỔI, HỦY LỊCH HẸN</B><BR/><FONT POINT-SIZE="13">Người dùng: Bệnh nhân · Ứng với chức năng 2 (BFD) và DFD mức 2 — chức năng 2</FONT><BR/> >, rankdir=TB, nodesep=0.55, ranksep=0.5, newrank=true];
+  node [fontname="Arial", color="black", fontsize=13, penwidth=1.4, margin="0.18,0.08"];
+  edge [fontname="Arial", fontsize=11.5, arrowsize=0.85, penwidth=1.2];
+
+  S [shape=oval, style=bold, penwidth=1.6, label=<<B>Bắt đầu</B><BR/><FONT POINT-SIZE="11">Trang chủ Bệnh nhân [2]</FONT>>];
+  Q0 [shape=diamond, fontsize=12, label=<Bệnh nhân<BR/>chọn>];
+  S -> Q0;
+
+  // ----- Đặt lịch mới -----
+  P9 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[9]</B> Chọn bác sĩ, ngày khám<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Bệnh nhân · CN 2.1 Tiếp nhận yêu cầu đặt lịch</I></FONT>>];
+  K22 [shape=box, style=filled, fillcolor="#eeeeee", label=<Kiểm tra lịch trống<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 2.2 · đọc D1 lịch làm việc, D4 lịch đã đặt</I></FONT>>];
+  Q1 [shape=diamond, fontsize=12, label=<Còn khung<BR/>giờ trống?>];
+  N1 [shape=note, label=<Báo hết chỗ, gợi ý<BR/>chọn ngày / bác sĩ khác>];
+  P10 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[10]</B> Chọn khung giờ trống<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Bệnh nhân</I></FONT>>];
+  P11 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[11]</B> Xem lại và xác nhận lịch hẹn<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Bệnh nhân</I></FONT>>];
+  Q2 [shape=diamond, fontsize=12, label=<Đồng ý<BR/>đặt?>];
+  X23 [shape=box, style=filled, fillcolor="#eeeeee", label=<Xác nhận lịch hẹn: kiểm tra lại khung giờ<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 2.3</I></FONT>>];
+  Q3 [shape=diamond, fontsize=12, label=<Khung giờ<BR/>vẫn trống?>];
+  N2 [shape=note, label=<Báo khung giờ vừa có<BR/>người đặt, chọn giờ khác>];
+  W23 [shape=box, style=filled, fillcolor="#eeeeee", label=<Ghi lịch hẹn<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 2.3 · ghi D4<BR/>(đổi lịch: thay giờ cũ bằng giờ mới)</I></FONT>>];
+  N3 [shape=note, label=<Thông báo lịch hẹn<BR/>gửi Bệnh nhân>];
+  N4 [shape=note, label=<Lịch hẹn hiện trong danh sách<BR/>của Quản lý phòng khám>];
+  E [shape=oval, style=bold, penwidth=1.6, label=<<B>Kết thúc</B>>];
+
+  Q0 -> P9 [label=<  Đặt lịch mới>];
+  P9 -> K22;
+  K22 -> Q1;
+  Q1 -> N1 [label=<Không>];
+  N1 -> P9 [constraint=false];
+  Q1 -> P10 [label=<  Có>];
+  P10 -> P11;
+  P11 -> Q2;
+  Q2 -> P10 [label=<Không, chọn lại>, constraint=false];
+  Q2 -> X23 [label=<  Có>];
+  X23 -> Q3;
+  Q3 -> N2 [label=<Không>];
+  N2 -> P10 [constraint=false];
+  Q3 -> W23 [label=<  Có>];
+  W23 -> N3;
+  W23 -> N4;
+  N3 -> E;
+  N4 -> E;
+
+  // ----- Đổi / hủy lịch -----
+  P12 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[12]</B> Lịch hẹn của tôi<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Bệnh nhân · CN 2.4 Đổi, hủy lịch hẹn · đọc D4</I></FONT>>];
+  Q4 [shape=diamond, fontsize=12, label=<Có lịch hẹn<BR/>chưa khám?>];
+  N5 [shape=note, label=<Báo chưa có<BR/>lịch hẹn nào>];
+  Q5 [shape=diamond, fontsize=12, label=<Đổi hay<BR/>hủy?>];
+  P13 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[13]</B> Xác nhận hủy lịch hẹn<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Bệnh nhân · CN 2.4</I></FONT>>];
+  Q6 [shape=diamond, fontsize=12, label=<Đồng ý<BR/>hủy?>];
+  H24 [shape=box, style=filled, fillcolor="#eeeeee", label=<Cập nhật trạng thái lịch hẹn: đã hủy<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="11"><I>Hệ thống · CN 2.4 · ghi D4</I></FONT>>];
+  N6 [shape=note, label=<Thông báo hủy lịch<BR/>gửi Bệnh nhân>];
+
+  Q0 -> P12 [label=<  Đổi / hủy lịch>];
+  P12 -> Q4;
+  Q4 -> N5 [label=<Không>];
+  N5 -> E;
+  Q4 -> Q5 [label=<  Có, chọn 1 lịch>];
+  Q5 -> P9 [label=<Đổi: yêu cầu<BR/>chọn giờ mới>, constraint=false];
+  Q5 -> P13 [label=<  Hủy>];
+  P13 -> Q6;
+  Q6 -> P12 [label=<Không>, constraint=false];
+  Q6 -> H24 [label=<  Có>];
+  H24 -> N6;
+  N6 -> E;
+
+  // ----- Chú thích -----
+  subgraph cluster_legend {
+    label=<<B>Chú thích</B>>; fontsize=12; style=dashed; color="#888888"; labeljust=l; margin=12;
+    node [fontsize=11, margin="0.12,0.05"];
+    G1 [shape=oval, style=bold, label=<Bắt đầu / Kết thúc>];
+    G2 [shape=box, style="rounded,bold", label=<[n] Màn hình người dùng>];
+    G3 [shape=box, style=filled, fillcolor="#eeeeee", label=<Hệ thống xử lý>];
+    G4 [shape=diamond, label=<Rẽ nhánh>];
+    G5 [shape=note, label=<Thông báo / phiếu>];
+    G6 [shape=cds, label=<Sang luồng khác>];
+    {rank=same; G1; G2; G3; G4; G5; G6;}
+    G1 -> G2 -> G3 -> G4 -> G5 -> G6 [style=invis];
+  }
+  E -> G3 [style=invis];
+}
