@@ -1,0 +1,55 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=22, label=<<B>USERFLOW — LUỒNG 3: TIẾP NHẬN, KHÁM BỆNH, KÊ ĐƠN</B><BR/><FONT POINT-SIZE="14">Người dùng: Nhân viên (tiếp nhận) và Bác sĩ (khám, kê đơn) · Ứng với chức năng 3, 4</FONT><BR/> >, rankdir=TB, nodesep=0.55, ranksep=0.5, newrank=true];
+  node [fontname="Arial", color="black", fontsize=14, penwidth=1.4, margin="0.18,0.08"];
+  edge [fontname="Arial", fontsize=12.5, arrowsize=0.85, penwidth=1.2];
+  S [shape=oval, style=bold, penwidth=1.6, label=<<B>Bắt đầu</B><BR/><FONT POINT-SIZE="12">Nhân viên: bệnh nhân đến quầy</FONT>>];
+  P21 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[21]</B> Tiếp nhận bệnh nhân<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Nhân viên · CN 3.1</I></FONT>>];
+  Q1 [shape=diamond, fontsize=13, label=<Có lịch hẹn<BR/>hôm nay?>];
+  V1 [shape=box, style=filled, fillcolor="#eeeeee", label=<Tạo lượt khám không hẹn<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Hệ thống · tạo / cập nhật hồ sơ D2 · ghi D4</I></FONT>>];
+  T1 [shape=box, style=filled, fillcolor="#eeeeee", label=<Lập phiếu tiếp nhận<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Hệ thống · CN 3.1 · cấp mã BN · lịch sang Chờ khám</I></FONT>>];
+  P22 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[22]</B> Danh sách lịch hẹn<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Nhân viên · Tiếp nhận, đổi, hủy, in phiếu</I></FONT>>];
+  P5 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[5]</B> Hàng chờ khám<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Bác sĩ · CN 3.2 · chỉ bệnh nhân của mình</I></FONT>>];
+  GK [shape=box, style=filled, fillcolor="#eeeeee", label=<Gọi vào khám<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Hệ thống · lịch sang Đang khám</I></FONT>>];
+  P23 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[23]</B> Hồ sơ bệnh án các lần trước<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Bác sĩ · CN 3.2 · đọc D5, D6</I></FONT>>];
+  P24 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[24]</B> Ghi kết quả khám và kê đơn<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Bác sĩ · CN 3.3, 4.1 · chọn thuốc trong danh mục</I></FONT>>];
+  K42 [shape=box, style=filled, fillcolor="#eeeeee", label=<Kiểm tra thuốc<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Hệ thống · CN 4.2 · đọc D3</I></FONT>>];
+  Q2 [shape=diamond, fontsize=13, label=<Đơn<BR/>hợp lệ?>];
+  N2 [shape=note, label=<Báo thuốc trùng,<BR/>số lượng sai>];
+  W33 [shape=box, style=filled, fillcolor="#eeeeee", label=<Lưu bệnh án và đơn thuốc<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Hệ thống · CN 3.3, 4.3 · ghi D5, D6 · lịch Đã khám</I></FONT>>];
+  N3 [shape=note, label=<Phiếu kết quả khám, đơn thuốc (bản in)<BR/>bệnh nhân mang đơn ra ngoài mua thuốc>];
+  N4 [shape=note, label=<Thông báo kết quả<BR/>gửi Bệnh nhân>];
+  E [shape=oval, style=bold, penwidth=1.6, label=<<B>Kết thúc</B>>];
+  S -> P21;
+  P21 -> Q1;
+  Q1 -> V1 [label=<Không>];
+  Q1 -> T1 [label=<  Có, chọn lịch>];
+  V1 -> T1;
+  P22 -> P21 [label=<Tiếp nhận>, constraint=false];
+  T1 -> P5 [label=<Vào hàng chờ<BR/>của bác sĩ>];
+  P5 -> GK;
+  GK -> P23;
+  P23 -> P24;
+  P24 -> K42 [label=<Lưu>];
+  K42 -> Q2;
+  Q2 -> N2 [label=<Không>];
+  N2 -> P24 [constraint=false];
+  Q2 -> W33 [label=<  Có>];
+  W33 -> N3;
+  W33 -> N4;
+  N3 -> E;
+  N4 -> E;
+  {rank=same; P21; P22;}
+  subgraph cluster_legend {
+    label=<<B>Chú thích</B>>; fontsize=13; style=dashed; color="#888888"; labeljust=l; margin=12;
+    node [fontsize=12, margin="0.12,0.05"];
+    G1 [shape=oval, style=bold, label=<Bắt đầu / Kết thúc>];
+    G2 [shape=box, style="rounded,bold", label=<[n] Màn hình người dùng>];
+    G3 [shape=box, style=filled, fillcolor="#eeeeee", label=<Hệ thống xử lý>];
+    G4 [shape=diamond, label=<Rẽ nhánh>];
+    G5 [shape=note, label=<Thông báo / phiếu>];
+    G6 [shape=cds, label=<Sang luồng khác>];
+    {rank=same; G1; G2; G3; G4; G5; G6;}
+    G1 -> G2 -> G3 -> G4 -> G5 -> G6 [style=invis];
+  }
+  E -> G3 [style=invis];
+}

@@ -1,0 +1,61 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=22, label=<<B>USERFLOW TỔNG QUAN — HỆ THỐNG QUẢN LÝ PHÒNG KHÁM</B><BR/><FONT POINT-SIZE="14">4 vai trò: Bệnh nhân, Nhân viên, Bác sĩ, Quản trị</FONT><BR/> >, rankdir=TB, nodesep=0.45, ranksep=0.55, newrank=true];
+  node [fontname="Arial", color="black", fontsize=14, penwidth=1.4, margin="0.18,0.08"];
+  edge [fontname="Arial", fontsize=12.5, arrowsize=0.85, penwidth=1.2];
+  S [shape=oval, style=bold, penwidth=1.6, label=<<B>Bắt đầu</B><BR/><FONT POINT-SIZE="12">Người dùng mở hệ thống</FONT>>];
+  P1 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[1]</B> Đăng nhập<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Mọi vai trò</I></FONT>>];
+  Q0 [shape=diamond, fontsize=13, label=<Đã có<BR/>tài khoản?>];
+  P2 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[2]</B> Đăng ký tài khoản<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Bệnh nhân · số điện thoại</I></FONT>>];
+  Q1 [shape=diamond, fontsize=13, label=<Thông tin<BR/>đúng?>];
+  N1 [shape=note, label=<Báo sai tên đăng nhập<BR/>hoặc mật khẩu>];
+  Q2 [shape=diamond, fontsize=13, label=<Tài khoản<BR/>bị khóa?>];
+  N2 [shape=note, label=<Báo tài khoản đã bị khóa,<BR/>liên hệ quản trị>];
+  Q3 [shape=diamond, fontsize=13, label=<Vai trò?>];
+  P3 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[3]</B> Trang chủ<BR/>Bệnh nhân>];
+  P4 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[4]</B> Trang chủ<BR/>Nhân viên>];
+  P5 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[5]</B> Hàng chờ khám>];
+  P6 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[6]</B> Trang chủ<BR/>Quản trị>];
+  L2 [shape=cds, margin="0.22,0.1", label=<<B>Luồng 2</B>: Đặt, đổi, hủy lịch hẹn<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>CN 2 · màn [14]–[19]</I></FONT>>];
+  L3 [shape=cds, margin="0.22,0.1", label=<<B>Luồng 3</B>: Tiếp nhận, khám bệnh, kê đơn<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>CN 3, 4 · màn [21]–[24]</I></FONT>>];
+  L1 [shape=cds, margin="0.22,0.1", label=<<B>Luồng 1</B>: Quản trị hệ thống<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>CN 1 · màn [7]–[13]</I></FONT>>];
+  L4 [shape=cds, margin="0.22,0.1", label=<<B>Luồng 4</B>: Báo cáo thống kê<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>CN 5 · màn [26]–[27]</I></FONT>>];
+  P20 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[20]</B> Kết quả khám,<BR/>đơn thuốc<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Bệnh nhân</I></FONT>>];
+  P25 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[25]</B> Lịch làm việc<BR/>của tôi<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Bác sĩ</I></FONT>>];
+  S -> P1;
+  P1 -> Q0;
+  Q0 -> P2 [label=<Không>];
+  P2 -> P3 [label=<Đăng ký xong,<BR/>vào trang chủ>];
+  Q0 -> Q1 [label=<  Có>];
+  Q1 -> N1 [label=<Không>];
+  N1 -> P1 [constraint=false];
+  Q1 -> Q2 [label=<  Có>];
+  Q2 -> N2 [label=<Có>];
+  Q2 -> Q3 [label=<  Không>];
+  Q3 -> P3 [label=<Bệnh nhân>];
+  Q3 -> P4 [label=<Nhân viên>];
+  Q3 -> P5 [label=<Bác sĩ>];
+  Q3 -> P6 [label=<Quản trị>];
+  P3 -> L2 [label=<Tự đặt, đổi,<BR/>hủy lịch>];
+  P3 -> P20 [label=<Xem kết quả>];
+  P4 -> L2 [label=<Đặt hộ>];
+  P4 -> L3 [label=<Tiếp nhận>];
+  P5 -> L3 [label=<Gọi vào khám>];
+  P5 -> P25;
+  P6 -> L1 [label=<Bác sĩ, thuốc,<BR/>tài khoản>];
+  P6 -> L4 [label=<Báo cáo>];
+  {rank=same; P3; P4; P5; P6;}
+  {rank=same; L2; L3; L1; L4;}
+  subgraph cluster_legend {
+    label=<<B>Chú thích</B>>; fontsize=13; style=dashed; color="#888888"; labeljust=l; margin=12;
+    node [fontsize=12, margin="0.12,0.05"];
+    G1 [shape=oval, style=bold, label=<Bắt đầu / Kết thúc>];
+    G2 [shape=box, style="rounded,bold", label=<[n] Màn hình người dùng>];
+    G3 [shape=box, style=filled, fillcolor="#eeeeee", label=<Hệ thống xử lý>];
+    G4 [shape=diamond, label=<Rẽ nhánh>];
+    G5 [shape=note, label=<Thông báo / phiếu>];
+    G6 [shape=cds, label=<Sang luồng khác>];
+    {rank=same; G1; G2; G3; G4; G5; G6;}
+    G1 -> G2 -> G3 -> G4 -> G5 -> G6 [style=invis];
+  }
+  L3 -> G3 [style=invis];
+}

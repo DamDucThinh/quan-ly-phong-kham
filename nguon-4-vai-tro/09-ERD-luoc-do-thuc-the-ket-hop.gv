@@ -1,0 +1,47 @@
+graph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=24, label=<<B>LƯỢC ĐỒ THỰC THỂ KẾT HỢP (ERD)</B><BR/> >, rankdir=LR, nodesep=0.35, ranksep=0.55, splines=line];
+  node [fontname="Arial", fontsize=15];
+  edge [fontname="Arial", fontsize=14, penwidth=1.3];
+  BS [shape=plain, label=<<TABLE BORDER="2" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BORDER="1" SIDES="B"><B>BÁC SĨ</B></TD></TR><TR><TD ALIGN="LEFT"><U>Mã bác sĩ</U></TD></TR><TR><TD ALIGN="LEFT">Họ tên</TD></TR><TR><TD ALIGN="LEFT">Chuyên khoa</TD></TR><TR><TD ALIGN="LEFT">Phòng</TD></TR><TR><TD ALIGN="LEFT">Số điện thoại</TD></TR><TR><TD ALIGN="LEFT">Email</TD></TR><TR><TD ALIGN="LEFT">Trình độ</TD></TR></TABLE>>];
+  CA [shape=plain, label=<<TABLE BORDER="2" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BORDER="1" SIDES="B"><B>CA LÀM VIỆC</B></TD></TR><TR><TD ALIGN="LEFT"><U>Mã ca</U></TD></TR><TR><TD ALIGN="LEFT">Thứ</TD></TR><TR><TD ALIGN="LEFT">Giờ bắt đầu</TD></TR><TR><TD ALIGN="LEFT">Giờ kết thúc</TD></TR></TABLE>>];
+  BN [shape=plain, label=<<TABLE BORDER="2" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BORDER="1" SIDES="B"><B>BỆNH NHÂN</B></TD></TR><TR><TD ALIGN="LEFT"><U>Mã bệnh nhân</U></TD></TR><TR><TD ALIGN="LEFT">Họ tên</TD></TR><TR><TD ALIGN="LEFT">Số điện thoại</TD></TR><TR><TD ALIGN="LEFT">Năm sinh</TD></TR><TR><TD ALIGN="LEFT">Giới tính</TD></TR><TR><TD ALIGN="LEFT">Địa chỉ</TD></TR></TABLE>>];
+  TK [shape=plain, label=<<TABLE BORDER="2" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BORDER="1" SIDES="B"><B>TÀI KHOẢN</B></TD></TR><TR><TD ALIGN="LEFT"><U>Tên đăng nhập</U></TD></TR><TR><TD ALIGN="LEFT">Mật khẩu</TD></TR><TR><TD ALIGN="LEFT">Vai trò</TD></TR><TR><TD ALIGN="LEFT">Họ tên</TD></TR><TR><TD ALIGN="LEFT">Trạng thái hoạt động</TD></TR></TABLE>>];
+  TB [shape=plain, label=<<TABLE BORDER="2" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BORDER="1" SIDES="B"><B>THÔNG BÁO</B></TD></TR><TR><TD ALIGN="LEFT"><U>Mã thông báo</U></TD></TR><TR><TD ALIGN="LEFT">Loại</TD></TR><TR><TD ALIGN="LEFT">Tiêu đề</TD></TR><TR><TD ALIGN="LEFT">Nội dung</TD></TR><TR><TD ALIGN="LEFT">Thời điểm</TD></TR></TABLE>>];
+  LH [shape=plain, label=<<TABLE BORDER="2" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BORDER="1" SIDES="B"><B>LỊCH HẸN</B></TD></TR><TR><TD ALIGN="LEFT"><U>Mã lịch hẹn</U></TD></TR><TR><TD ALIGN="LEFT">Ngày</TD></TR><TR><TD ALIGN="LEFT">Giờ</TD></TR><TR><TD ALIGN="LEFT">Loại</TD></TR><TR><TD ALIGN="LEFT">Lý do khám</TD></TR><TR><TD ALIGN="LEFT">Trạng thái</TD></TR><TR><TD ALIGN="LEFT">Lý do hủy</TD></TR><TR><TD ALIGN="LEFT">Người đặt</TD></TR></TABLE>>];
+  BA [shape=plain, label=<<TABLE BORDER="2" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BORDER="1" SIDES="B"><B>BỆNH ÁN</B></TD></TR><TR><TD ALIGN="LEFT"><U>Mã bệnh án</U></TD></TR><TR><TD ALIGN="LEFT">Ngày khám</TD></TR><TR><TD ALIGN="LEFT">Mạch, nhiệt độ</TD></TR><TR><TD ALIGN="LEFT">Huyết áp, cân nặng</TD></TR><TR><TD ALIGN="LEFT">Kết quả khám</TD></TR><TR><TD ALIGN="LEFT">Chẩn đoán</TD></TR><TR><TD ALIGN="LEFT">Lời dặn</TD></TR></TABLE>>];
+  DT [shape=plain, label=<<TABLE BORDER="2" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BORDER="1" SIDES="B"><B>ĐƠN THUỐC</B></TD></TR><TR><TD ALIGN="LEFT"><U>Mã đơn thuốc</U></TD></TR><TR><TD ALIGN="LEFT">Ngày kê</TD></TR></TABLE>>];
+  TH [shape=plain, label=<<TABLE BORDER="2" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BORDER="1" SIDES="B"><B>THUỐC</B></TD></TR><TR><TD ALIGN="LEFT"><U>Mã thuốc</U></TD></TR><TR><TD ALIGN="LEFT">Tên thuốc</TD></TR><TR><TD ALIGN="LEFT">Hàm lượng</TD></TR><TR><TD ALIGN="LEFT">Đơn vị</TD></TR><TR><TD ALIGN="LEFT">Nhóm</TD></TR><TR><TD ALIGN="LEFT">Liều tối đa</TD></TR><TR><TD ALIGN="LEFT">Lưu ý</TD></TR></TABLE>>];
+  R1 [shape=diamond, style=filled, fillcolor="#eeeeee", fontsize=14, height=0.6, margin="0.06,0.02", label="Làm việc theo"];
+  BS -- R1 [headlabel="", taillabel="1", labeldistance=1.8, labelangle=30];
+  R1 -- CA [headlabel="n", labeldistance=1.8, labelangle=-30];
+  R2 [shape=diamond, style=filled, fillcolor="#eeeeee", fontsize=14, height=0.6, margin="0.06,0.02", label="Khám theo"];
+  BS -- R2 [headlabel="", taillabel="1", labeldistance=1.8, labelangle=30];
+  R2 -- LH [headlabel="n", labeldistance=1.8, labelangle=-30];
+  R3 [shape=diamond, style=filled, fillcolor="#eeeeee", fontsize=14, height=0.6, margin="0.06,0.02", label="Gắn với"];
+  BS -- R3 [headlabel="", taillabel="1", labeldistance=1.8, labelangle=30];
+  R3 -- TK [headlabel="0..1", labeldistance=1.8, labelangle=40];
+  R4 [shape=diamond, style=filled, fillcolor="#eeeeee", fontsize=14, height=0.6, margin="0.06,0.02", label="Đặt"];
+  BN -- R4 [headlabel="", taillabel="1", labeldistance=1.8, labelangle=30];
+  R4 -- LH [headlabel="n", labeldistance=1.8, labelangle=-30];
+  R5 [shape=diamond, style=filled, fillcolor="#eeeeee", fontsize=14, height=0.6, margin="0.06,0.02", label="Sở hữu"];
+  BN -- R5 [headlabel="", taillabel="1", labeldistance=1.8, labelangle=30];
+  R5 -- TK [headlabel="0..1", labeldistance=1.8, labelangle=-30];
+  R6 [shape=diamond, style=filled, fillcolor="#eeeeee", fontsize=14, height=0.6, margin="0.06,0.02", label="Nhận"];
+  BN -- R6 [headlabel="", taillabel="1", labeldistance=1.8, labelangle=30];
+  R6 -- TB [headlabel="n", labeldistance=1.8, labelangle=-30];
+  R7 [shape=diamond, style=filled, fillcolor="#eeeeee", fontsize=14, height=0.6, margin="0.06,0.02", label="Sinh ra"];
+  LH -- R7 [headlabel="", taillabel="1", labeldistance=1.8, labelangle=30];
+  R7 -- BA [headlabel="0..1", labeldistance=1.8, labelangle=-30];
+  R8 [shape=diamond, style=filled, fillcolor="#eeeeee", fontsize=14, height=0.6, margin="0.06,0.02", label="Có"];
+  BA -- R8 [headlabel="", taillabel="1", labeldistance=1.8, labelangle=30];
+  R8 -- DT [headlabel="0..1", labeldistance=1.8, labelangle=-30];
+  R9 [shape=diamond, style=filled, fillcolor="#eeeeee", fontsize=14, height=0.6, margin="0.06,0.02", label="Gồm"];
+  DT -- R9 [headlabel="", taillabel="n", labeldistance=1.8, labelangle=30];
+  R9 -- TH [headlabel="n", labeldistance=1.8, labelangle=-30];
+  SL [shape=ellipse, fontsize=14, label="Số lượng"];
+  CD [shape=ellipse, fontsize=14, label="Cách dùng"];
+  R9 -- SL [style=dashed];
+  R9 -- CD [style=dashed];
+  {rank=same; BS; BN;}
+  {rank=same; CA; LH; TK; TB;}
+}

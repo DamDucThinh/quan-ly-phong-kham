@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="1060" viewBox="0 0 1640 1060">
+<defs><marker id="mt" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker></defs>
+<rect width="1640" height="1060" fill="#fff"/>
+<text x="820.0" y="70" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold">DFD MỨC DƯỚI ĐỈNH — CHỨC NĂNG 5: BÁO CÁO THỐNG KÊ</text>
+<path d="M 736.5 249.6 L 471.4 481.6" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 487.2 499.7 L 773.0 249.6" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 863.5 249.6 L 1128.6 481.6" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 1112.8 499.7 L 827.0 249.6" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 400.0 867.8 L 400.0 666.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 1019.0 867.8 L 1146.3 651.4" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 1381.0 867.8 L 1253.7 651.4" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<rect x="705.0" y="170.4" width="190" height="79.19999999999999" fill="#fff" stroke="#000" stroke-width="2.2"/>
+<text x="800" y="218.4" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">Quản trị</text>
+<circle cx="400" cy="560" r="106" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="400" y="539.8" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold">5.1</text>
+<text x="400" y="567.7" text-anchor="middle" font-family="Arial" font-size="22" font-weight="normal">Thống kê</text>
+<text x="400" y="595.6" text-anchor="middle" font-family="Arial" font-size="22" font-weight="normal">lượt khám</text>
+<circle cx="1200" cy="560" r="106" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1200" y="539.8" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold">5.2</text>
+<text x="1200" y="567.7" text-anchor="middle" font-family="Arial" font-size="22" font-weight="normal">Thống kê</text>
+<text x="1200" y="595.6" text-anchor="middle" font-family="Arial" font-size="22" font-weight="normal">thuốc đã kê</text>
+<rect x="275.0" y="867.77" width="250" height="64.46000000000001" fill="#fff"/>
+<line x1="275.0" y1="867.77" x2="525.0" y2="867.77" stroke="#000" stroke-width="2.2"/>
+<line x1="275.0" y1="932.23" x2="525.0" y2="932.23" stroke="#000" stroke-width="2.2"/>
+<text x="400" y="907.7" text-anchor="middle" font-family="Arial" font-size="22"><tspan font-weight="bold">D5</tspan>  Hồ sơ bệnh án</text>
+<rect x="900.0" y="867.77" width="200" height="64.46000000000001" fill="#fff"/>
+<line x1="900.0" y1="867.77" x2="1100.0" y2="867.77" stroke="#000" stroke-width="2.2"/>
+<line x1="900.0" y1="932.23" x2="1100.0" y2="932.23" stroke="#000" stroke-width="2.2"/>
+<text x="1000" y="907.7" text-anchor="middle" font-family="Arial" font-size="22"><tspan font-weight="bold">D6</tspan>  Đơn thuốc</text>
+<rect x="1270.0" y="867.77" width="260" height="64.46000000000001" fill="#fff"/>
+<line x1="1270.0" y1="867.77" x2="1530.0" y2="867.77" stroke="#000" stroke-width="2.2"/>
+<line x1="1270.0" y1="932.23" x2="1530.0" y2="932.23" stroke="#000" stroke-width="2.2"/>
+<text x="1400" y="907.7" text-anchor="middle" font-family="Arial" font-size="22"><tspan font-weight="bold">D3</tspan>  Danh mục thuốc</text>
+<rect x="415.9" y="325.0" width="176.0" height="33.21" fill="#fff"/>
+<text x="503.9" y="351.0" text-anchor="middle" font-family="Arial" font-size="23">Yêu cầu báo cáo</text>
+<rect x="645.7" y="379.4" width="108.8" height="62.42" fill="#fff"/>
+<text x="700.1" y="405.4" text-anchor="middle" font-family="Arial" font-size="23">Thống kê</text>
+<text x="700.1" y="434.6" text-anchor="middle" font-family="Arial" font-size="23">lượt khám</text>
+<rect x="1008.1" y="325.0" width="176.0" height="33.21" fill="#fff"/>
+<text x="1096.1" y="351.0" text-anchor="middle" font-family="Arial" font-size="23">Yêu cầu báo cáo</text>
+<rect x="828.3" y="383.4" width="131.2" height="62.42" fill="#fff"/>
+<text x="893.9" y="409.4" text-anchor="middle" font-family="Arial" font-size="23">Thống kê</text>
+<text x="893.9" y="438.6" text-anchor="middle" font-family="Arial" font-size="23">thuốc đã kê</text>
+<rect x="306.8" y="750.3" width="86.4" height="33.21" fill="#fff"/>
+<text x="350.0" y="776.3" text-anchor="middle" font-family="Arial" font-size="23">Bệnh án</text>
+<rect x="958.2" y="743.0" width="108.8" height="33.21" fill="#fff"/>
+<text x="1012.6" y="769.0" text-anchor="middle" font-family="Arial" font-size="23">Đơn thuốc</text>
+<rect x="1331.0" y="743.0" width="164.8" height="33.21" fill="#fff"/>
+<text x="1413.4" y="769.0" text-anchor="middle" font-family="Arial" font-size="23">Danh mục thuốc</text>
+</svg>

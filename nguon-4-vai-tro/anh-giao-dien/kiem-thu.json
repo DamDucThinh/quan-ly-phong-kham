@@ -1,0 +1,92 @@
+[
+ [
+  "KT01",
+  "Nhân viên đặt lịch hộ bệnh nhân gọi điện",
+  "Đạt",
+  "lịch ghi nhận đặt bởi nhân viên, trạng thái Chưa đến"
+ ],
+ [
+  "KT02",
+  "Nhân viên thêm bệnh nhân mới đến quầy rồi đặt lịch",
+  "Đạt",
+  "tạo hồ sơ chỉ với họ tên và SĐT, chuyển sang chọn bác sĩ"
+ ],
+ [
+  "KT03",
+  "Nhân viên tiếp nhận bệnh nhân có lịch hẹn hôm nay",
+  "Đạt",
+  "lịch chuyển sang Chờ khám, vào hàng chờ bác sĩ"
+ ],
+ [
+  "KT04",
+  "Bác sĩ khác mở hồ sơ bệnh nhân không thuộc hàng chờ của mình",
+  "Đạt",
+  "bị chuyển về hàng chờ của mình"
+ ],
+ [
+  "KT05",
+  "Bác sĩ gọi bệnh nhân vào khám",
+  "Đạt",
+  "trạng thái Đang khám, mở hồ sơ các lần khám trước"
+ ],
+ [
+  "KT06",
+  "Kê một thuốc hai lần trong cùng đơn",
+  "Đạt",
+  "báo thuốc đã có trong đơn, không thêm dòng thứ hai"
+ ],
+ [
+  "KT07",
+  "Bác sĩ lưu bệnh án và đơn thuốc",
+  "Đạt",
+  "lịch Đã khám, đơn 2 thuốc được lưu để in cho bệnh nhân"
+ ],
+ [
+  "KT08",
+  "Bác sĩ mở trang danh mục thuốc của quản trị",
+  "Đạt",
+  "bị chuyển về hàng chờ khám"
+ ],
+ [
+  "KT09",
+  "Quản trị thêm thuốc mới vào danh mục",
+  "Đạt",
+  "thuốc được cấp mã TH009, bác sĩ chọn được khi kê đơn"
+ ],
+ [
+  "KT10",
+  "Quản trị tạo tài khoản nhân viên rồi khóa; tài khoản bị khóa đăng nhập",
+  "Đạt",
+  "báo “Tài khoản đã bị khóa”, không vào được hệ thống"
+ ],
+ [
+  "KT11",
+  "Báo cáo thuốc đã kê tháng này",
+  "Đạt",
+  "liệt kê số lượng từng thuốc đã kê và số đơn trong kỳ"
+ ],
+ [
+  "KT12",
+  "Báo cáo lượt khám tháng 10/2026",
+  "Đạt",
+  "biểu đồ lượt khám theo ngày, bảng theo bác sĩ"
+ ],
+ [
+  "KT13",
+  "Chọn ngày bắt đầu sau ngày kết thúc",
+  "Đạt",
+  "quay lại màn chọn báo cáo, báo chọn lại khoảng thời gian"
+ ],
+ [
+  "KT14",
+  "Quản trị mở trang của nhân viên",
+  "Đạt",
+  "bị chuyển về trang chủ quản trị"
+ ],
+ [
+  "KT15",
+  "Bệnh nhân xem kết quả khám và đơn thuốc",
+  "Đạt",
+  "thấy chẩn đoán, đơn thuốc và lời nhắc mua thuốc theo đơn ở nhà thuốc"
+ ]
+]

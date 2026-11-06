@@ -1,0 +1,38 @@
+digraph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=22, label=<<B>USERFLOW — LUỒNG 4: BÁO CÁO THỐNG KÊ</B><BR/><FONT POINT-SIZE="14">Người dùng: Quản trị · Ứng với chức năng 5</FONT><BR/> >, rankdir=TB, nodesep=0.55, ranksep=0.5, newrank=true];
+  node [fontname="Arial", color="black", fontsize=14, penwidth=1.4, margin="0.18,0.08"];
+  edge [fontname="Arial", fontsize=12.5, arrowsize=0.85, penwidth=1.2];
+  S [shape=oval, style=bold, penwidth=1.6, label=<<B>Bắt đầu</B><BR/><FONT POINT-SIZE="12">Trang chủ Quản trị [6]</FONT>>];
+  P26 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[26]</B> Chọn loại báo cáo<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Lượt khám / thuốc đã kê · từ ngày, đến ngày</I></FONT>>];
+  Q1 [shape=diamond, fontsize=13, label=<Khoảng thời<BR/>gian hợp lệ?>];
+  N1 [shape=note, label=<Báo từ ngày phải trước<BR/>đến ngày, tối đa 366 ngày>];
+  T5 [shape=box, style=filled, fillcolor="#eeeeee", label=<Tổng hợp số liệu<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Hệ thống · CN 5.1 đọc D5 · 5.2 đọc D6, D3</I></FONT>>];
+  Q2 [shape=diamond, fontsize=13, label=<Có dữ liệu?>];
+  N2 [shape=note, label=<Báo không có dữ liệu<BR/>trong khoảng đã chọn>];
+  P27 [shape=box, style="rounded,bold", penwidth=1.6, label=<<B>[27]</B> Kết quả thống kê<BR/><FONT POINT-SIZE="4"> </FONT><BR/><FONT POINT-SIZE="12"><I>Bảng, biểu đồ · in báo cáo</I></FONT>>];
+  E [shape=oval, style=bold, penwidth=1.6, label=<<B>Kết thúc</B>>];
+  S -> P26;
+  P26 -> Q1 [label=<Xem báo cáo>];
+  Q1 -> N1 [label=<Không>];
+  N1 -> P26 [constraint=false];
+  Q1 -> T5 [label=<  Có>];
+  T5 -> Q2;
+  Q2 -> N2 [label=<Không>];
+  Q2 -> P27 [label=<  Có>];
+  N2 -> E;
+  P27 -> P26 [label=<Đổi loại / thời gian>, constraint=false];
+  P27 -> E;
+  subgraph cluster_legend {
+    label=<<B>Chú thích</B>>; fontsize=13; style=dashed; color="#888888"; labeljust=l; margin=12;
+    node [fontsize=12, margin="0.12,0.05"];
+    G1 [shape=oval, style=bold, label=<Bắt đầu / Kết thúc>];
+    G2 [shape=box, style="rounded,bold", label=<[n] Màn hình người dùng>];
+    G3 [shape=box, style=filled, fillcolor="#eeeeee", label=<Hệ thống xử lý>];
+    G4 [shape=diamond, label=<Rẽ nhánh>];
+    G5 [shape=note, label=<Thông báo / phiếu>];
+    G6 [shape=cds, label=<Sang luồng khác>];
+    {rank=same; G1; G2; G3; G4; G5; G6;}
+    G1 -> G2 -> G3 -> G4 -> G5 -> G6 [style=invis];
+  }
+  E -> G3 [style=invis];
+}

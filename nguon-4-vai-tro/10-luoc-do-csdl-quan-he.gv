@@ -1,0 +1,29 @@
+graph G {
+  graph [fontname="Arial", bgcolor="white", pad=0.35, labelloc=t, fontsize=24, label=<<B>LƯỢC ĐỒ CƠ SỞ DỮ LIỆU QUAN HỆ</B><BR/> >, rankdir=LR, nodesep=0.45, ranksep=1.0, splines=true];
+  node [fontname="Arial", fontsize=15];
+  edge [fontname="Arial", fontsize=13, penwidth=1.2];
+  bac_si [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e4e4e4"><B>bac_si</B>  <FONT POINT-SIZE="13"><B>(D1)</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>id PK</B></TD></TR><TR><TD ALIGN="LEFT">ho_ten</TD></TR><TR><TD ALIGN="LEFT">chuyen_khoa</TD></TR><TR><TD ALIGN="LEFT">phong</TD></TR><TR><TD ALIGN="LEFT">so_dien_thoai</TD></TR><TR><TD ALIGN="LEFT">email</TD></TR><TR><TD ALIGN="LEFT">trinh_do</TD></TR></TABLE>>];
+  ca_lam_viec [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e4e4e4"><B>ca_lam_viec</B>  <FONT POINT-SIZE="13"><B>(D1)</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>id PK</B></TD></TR><TR><TD ALIGN="LEFT">bac_si_id FK</TD></TR><TR><TD ALIGN="LEFT">thu</TD></TR><TR><TD ALIGN="LEFT">gio_bat_dau</TD></TR><TR><TD ALIGN="LEFT">gio_ket_thuc</TD></TR></TABLE>>];
+  benh_nhan [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e4e4e4"><B>benh_nhan</B>  <FONT POINT-SIZE="13"><B>(D2)</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>id PK</B></TD></TR><TR><TD ALIGN="LEFT">ma (UNIQUE)</TD></TR><TR><TD ALIGN="LEFT">ho_ten</TD></TR><TR><TD ALIGN="LEFT">so_dien_thoai (UNIQUE)</TD></TR><TR><TD ALIGN="LEFT">nam_sinh</TD></TR><TR><TD ALIGN="LEFT">gioi_tinh</TD></TR><TR><TD ALIGN="LEFT">dia_chi</TD></TR><TR><TD ALIGN="LEFT">tao_luc</TD></TR></TABLE>>];
+  tai_khoan [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e4e4e4"><B>tai_khoan</B>  <FONT POINT-SIZE="13"><B>(D7)</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>id PK</B></TD></TR><TR><TD ALIGN="LEFT">ten_dang_nhap (UNIQUE)</TD></TR><TR><TD ALIGN="LEFT">mat_khau</TD></TR><TR><TD ALIGN="LEFT">vai_tro</TD></TR><TR><TD ALIGN="LEFT">ho_ten</TD></TR><TR><TD ALIGN="LEFT">benh_nhan_id FK (UNIQUE)</TD></TR><TR><TD ALIGN="LEFT">bac_si_id FK (UNIQUE)</TD></TR><TR><TD ALIGN="LEFT">hoat_dong</TD></TR><TR><TD ALIGN="LEFT">tao_luc</TD></TR></TABLE>>];
+  thong_bao [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e4e4e4"><B>thong_bao</B></TD></TR><TR><TD ALIGN="LEFT"><B>id PK</B></TD></TR><TR><TD ALIGN="LEFT">benh_nhan_id FK</TD></TR><TR><TD ALIGN="LEFT">loai</TD></TR><TR><TD ALIGN="LEFT">tieu_de</TD></TR><TR><TD ALIGN="LEFT">noi_dung</TD></TR><TR><TD ALIGN="LEFT">tao_luc</TD></TR></TABLE>>];
+  lich_hen [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e4e4e4"><B>lich_hen</B>  <FONT POINT-SIZE="13"><B>(D4)</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>id PK</B></TD></TR><TR><TD ALIGN="LEFT">benh_nhan_id FK</TD></TR><TR><TD ALIGN="LEFT">bac_si_id FK</TD></TR><TR><TD ALIGN="LEFT">ngay</TD></TR><TR><TD ALIGN="LEFT">gio</TD></TR><TR><TD ALIGN="LEFT">loai</TD></TR><TR><TD ALIGN="LEFT">ly_do</TD></TR><TR><TD ALIGN="LEFT">trang_thai</TD></TR><TR><TD ALIGN="LEFT">ly_do_huy</TD></TR><TR><TD ALIGN="LEFT">dat_boi</TD></TR><TR><TD ALIGN="LEFT">tao_luc</TD></TR><TR><TD ALIGN="LEFT">giu_cho (cột sinh)</TD></TR></TABLE>>];
+  benh_an [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e4e4e4"><B>benh_an</B>  <FONT POINT-SIZE="13"><B>(D5)</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>id PK</B></TD></TR><TR><TD ALIGN="LEFT">lich_hen_id FK (UNIQUE)</TD></TR><TR><TD ALIGN="LEFT">benh_nhan_id FK</TD></TR><TR><TD ALIGN="LEFT">bac_si_id FK</TD></TR><TR><TD ALIGN="LEFT">ngay_kham</TD></TR><TR><TD ALIGN="LEFT">mach, nhiet_do</TD></TR><TR><TD ALIGN="LEFT">huyet_ap, can_nang</TD></TR><TR><TD ALIGN="LEFT">ket_qua</TD></TR><TR><TD ALIGN="LEFT">chan_doan</TD></TR><TR><TD ALIGN="LEFT">loi_dan</TD></TR><TR><TD ALIGN="LEFT">tao_luc</TD></TR></TABLE>>];
+  don_thuoc [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e4e4e4"><B>don_thuoc</B>  <FONT POINT-SIZE="13"><B>(D6)</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>id PK</B></TD></TR><TR><TD ALIGN="LEFT">benh_an_id FK (UNIQUE)</TD></TR><TR><TD ALIGN="LEFT">tao_luc</TD></TR></TABLE>>];
+  chi_tiet_don_thuoc [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e4e4e4"><B>chi_tiet_don_thuoc</B>  <FONT POINT-SIZE="13"><B>(D6)</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>id PK</B></TD></TR><TR><TD ALIGN="LEFT">don_thuoc_id FK</TD></TR><TR><TD ALIGN="LEFT">thuoc_id FK</TD></TR><TR><TD ALIGN="LEFT">so_luong</TD></TR><TR><TD ALIGN="LEFT">cach_dung</TD></TR></TABLE>>];
+  thuoc [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e4e4e4"><B>thuoc</B>  <FONT POINT-SIZE="13"><B>(D3)</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>id PK</B></TD></TR><TR><TD ALIGN="LEFT">ma (UNIQUE)</TD></TR><TR><TD ALIGN="LEFT">ten</TD></TR><TR><TD ALIGN="LEFT">ham_luong</TD></TR><TR><TD ALIGN="LEFT">don_vi</TD></TR><TR><TD ALIGN="LEFT">nhom</TD></TR><TR><TD ALIGN="LEFT">lieu_toi_da</TD></TR><TR><TD ALIGN="LEFT">luu_y</TD></TR></TABLE>>];
+  bac_si -- ca_lam_viec [label="1 : n"];
+  bac_si -- lich_hen [label="1 : n"];
+  bac_si -- benh_an [label="1 : n"];
+  bac_si -- tai_khoan [label="1 : 0..1"];
+  benh_nhan -- lich_hen [label="1 : n"];
+  benh_nhan -- benh_an [label="1 : n"];
+  benh_nhan -- tai_khoan [label="1 : 0..1"];
+  benh_nhan -- thong_bao [label="1 : n"];
+  lich_hen -- benh_an [label="1 : 0..1"];
+  benh_an -- don_thuoc [label="1 : 0..1"];
+  don_thuoc -- chi_tiet_don_thuoc [label="1 : n"];
+  thuoc -- chi_tiet_don_thuoc [label="1 : n"];
+  {rank=same; bac_si; benh_nhan;}
+  {rank=same; don_thuoc; thuoc;}
+}

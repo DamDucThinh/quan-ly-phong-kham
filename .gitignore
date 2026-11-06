@@ -3,3 +3,6 @@
 
 # File tạm của Word khi đang mở tài liệu
 ~$*
+
+# Tệp biên dịch của Python
+__pycache__/

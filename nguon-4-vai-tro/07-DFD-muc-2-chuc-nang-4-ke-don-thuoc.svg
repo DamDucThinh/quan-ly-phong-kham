@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2150" height="1150" viewBox="0 0 2150 1150">
+<defs><marker id="mt" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker></defs>
+<rect width="2150" height="1150" fill="#fff"/>
+<text x="1075.0" y="70" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold">DFD MỨC DƯỚI ĐỈNH — CHỨC NĂNG 4: KÊ ĐƠN THUỐC</text>
+<path d="M 285.0 330.0 L 614.0 330.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 720.0 667.8 L 720.0 436.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 825.3 318.0 L 1144.7 318.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 1144.7 342.0 L 825.3 342.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 1740.0 330.0 L 1356.0 330.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 1250.0 436.0 L 1250.0 594.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 1356.0 700.0 L 1720.0 700.0" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<path d="M 1250.0 806.0 L 1250.0 980.4" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#mt)"/>
+<rect x="115.0" y="290.4" width="170" height="79.19999999999999" fill="#fff" stroke="#000" stroke-width="2.2"/>
+<text x="200" y="338.4" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">Bác sĩ</text>
+<circle cx="720" cy="330" r="106" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="720" y="309.8" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold">4.1</text>
+<text x="720" y="337.7" text-anchor="middle" font-family="Arial" font-size="22" font-weight="normal">Lập</text>
+<text x="720" y="365.6" text-anchor="middle" font-family="Arial" font-size="22" font-weight="normal">đơn thuốc</text>
+<circle cx="1250" cy="330" r="106" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1250" y="309.8" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold">4.2</text>
+<text x="1250" y="337.7" text-anchor="middle" font-family="Arial" font-size="22" font-weight="normal">Kiểm tra</text>
+<text x="1250" y="365.6" text-anchor="middle" font-family="Arial" font-size="22" font-weight="normal">thuốc</text>
+<rect x="1740.0" y="297.77" width="260" height="64.46000000000001" fill="#fff"/>
+<line x1="1740.0" y1="297.77" x2="2000.0" y2="297.77" stroke="#000" stroke-width="2.2"/>
+<line x1="1740.0" y1="362.23" x2="2000.0" y2="362.23" stroke="#000" stroke-width="2.2"/>
+<text x="1870" y="337.7" text-anchor="middle" font-family="Arial" font-size="22"><tspan font-weight="bold">D3</tspan>  Danh mục thuốc</text>
+<rect x="595.0" y="667.77" width="250" height="64.46000000000001" fill="#fff"/>
+<line x1="595.0" y1="667.77" x2="845.0" y2="667.77" stroke="#000" stroke-width="2.2"/>
+<line x1="595.0" y1="732.23" x2="845.0" y2="732.23" stroke="#000" stroke-width="2.2"/>
+<text x="720" y="707.7" text-anchor="middle" font-family="Arial" font-size="22"><tspan font-weight="bold">D5</tspan>  Hồ sơ bệnh án</text>
+<circle cx="1250" cy="700" r="106" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1250" y="679.8" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold">4.3</text>
+<text x="1250" y="707.7" text-anchor="middle" font-family="Arial" font-size="22" font-weight="normal">Lưu và in</text>
+<text x="1250" y="735.6" text-anchor="middle" font-family="Arial" font-size="22" font-weight="normal">đơn thuốc</text>
+<rect x="1720.0" y="667.77" width="200" height="64.46000000000001" fill="#fff"/>
+<line x1="1720.0" y1="667.77" x2="1920.0" y2="667.77" stroke="#000" stroke-width="2.2"/>
+<line x1="1720.0" y1="732.23" x2="1920.0" y2="732.23" stroke="#000" stroke-width="2.2"/>
+<text x="1820" y="707.7" text-anchor="middle" font-family="Arial" font-size="22"><tspan font-weight="bold">D6</tspan>  Đơn thuốc</text>
+<rect x="1155.0" y="980.4" width="190" height="79.19999999999999" fill="#fff" stroke="#000" stroke-width="2.2"/>
+<text x="1250" y="1028.4" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">Bệnh nhân</text>
+<rect x="355.9" y="228.2" width="187.2" height="91.63" fill="#fff"/>
+<text x="449.5" y="254.2" text-anchor="middle" font-family="Arial" font-size="23">Kết quả khám</text>
+<text x="449.5" y="283.4" text-anchor="middle" font-family="Arial" font-size="23">chữa bệnh</text>
+<text x="449.5" y="312.6" text-anchor="middle" font-family="Arial" font-size="23">(chỉ định thuốc)</text>
+<rect x="605.6" y="535.3" width="108.8" height="33.21" fill="#fff"/>
+<text x="660.0" y="561.3" text-anchor="middle" font-family="Arial" font-size="23">Chẩn đoán</text>
+<rect x="885.8" y="267.4" width="198.4" height="33.21" fill="#fff"/>
+<text x="985.0" y="293.4" text-anchor="middle" font-family="Arial" font-size="23">Đơn thuốc dự kiến</text>
+<rect x="863.4" y="354.8" width="243.2" height="62.42" fill="#fff"/>
+<text x="985.0" y="380.8" text-anchor="middle" font-family="Arial" font-size="23">Thuốc cần điều chỉnh</text>
+<text x="985.0" y="410.0" text-anchor="middle" font-family="Arial" font-size="23">(trùng, số lượng sai)</text>
+<rect x="1465.6" y="291.4" width="164.8" height="33.21" fill="#fff"/>
+<text x="1548.0" y="317.4" text-anchor="middle" font-family="Arial" font-size="23">Danh mục thuốc</text>
+<rect x="1060.4" y="498.4" width="187.2" height="33.21" fill="#fff"/>
+<text x="1154.0" y="524.4" text-anchor="middle" font-family="Arial" font-size="23">Đơn thuốc hợp lệ</text>
+<rect x="1483.6" y="661.4" width="108.8" height="33.21" fill="#fff"/>
+<text x="1538.0" y="687.4" text-anchor="middle" font-family="Arial" font-size="23">Đơn thuốc</text>
+<rect x="972.8" y="862.0" width="254.4" height="62.42" fill="#fff"/>
+<text x="1100.0" y="888.0" text-anchor="middle" font-family="Arial" font-size="23">Kết quả khám chữa bệnh</text>
+<text x="1100.0" y="917.2" text-anchor="middle" font-family="Arial" font-size="23">(đơn thuốc)</text>
+</svg>
